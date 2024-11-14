@@ -8,7 +8,7 @@ use modules/cip68.{Cip68,
 use modules/types.{Action, Burn, Mint, Update}
 use modules/value
 
-validator cip_68(nonce: OutputReference) {
+validator cip_68(utxo_ref: OutputReference) {
   mint(redeemer action: Action, policy_id: PolicyId, tx: Transaction) {
     let mint_qty =
       when action is {
@@ -33,7 +33,7 @@ validator cip_68(nonce: OutputReference) {
     when action is {
       Mint -> and {
           tx.inputs
-            |> must_consume_nonce(nonce),
+            |> must_consume_nonce(utxo_ref),
           tx.outputs
             |> must_send_ref_token_to_self_script(policy_id, ref_token_name),
         }
