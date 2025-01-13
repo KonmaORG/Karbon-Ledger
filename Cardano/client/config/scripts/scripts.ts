@@ -10,7 +10,7 @@ import {
   validator_contract_validator_contract_mint,
   validator_contract_validator_contract_mint_mint,
 } from "./plutus";
-import { getPolicyId } from "@/libs/utils";
+import { getPolicyId } from "@/lib/utils";
 
 export const identificationPolicyid: Data = process.env.NEXT_PUBLIC_IDENTIFICATION_PID as string;
 

@@ -4,7 +4,7 @@ import { Spinner } from "@nextui-org/spinner";
 import { Snippet } from "@nextui-org/snippet";
 import { EmulatorAccount, Lucid, paymentCredentialOf } from "@lucid-evolution/lucid";
 import { Skeleton } from "@nextui-org/skeleton";
-import { handleError } from "@/libs/utils";
+import { handleError } from "@/lib/utils";
 import { useWallet } from "@/context/walletContext";
 import { accountA, accountB, accountC, accountD, emulator } from "@/config/emulator";
 import { Button } from "../ui/button";

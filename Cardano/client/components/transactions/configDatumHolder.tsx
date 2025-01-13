@@ -24,7 +24,7 @@ import {
   handleError,
   multiSignwithPrivateKey,
   privateKeytoAddress,
-} from "@/libs/utils";
+} from "@/lib/utils";
 import { accountB, accountC } from "@/config/emulator";
 import { get } from "http";
 

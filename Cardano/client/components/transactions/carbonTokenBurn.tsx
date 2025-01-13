@@ -8,7 +8,7 @@ import {
   multiSignwithPrivateKey,
   privateKeytoAddress,
   refUtxo,
-} from "@/libs/utils";
+} from "@/lib/utils";
 import { KarbonRedeemerMint } from "@/types/cardano";
 
 export default function Validator_contract() {

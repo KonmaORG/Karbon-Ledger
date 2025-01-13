@@ -1,4 +1,4 @@
-import { getAddress } from "@/libs/utils";
+import { getAddress } from "@/lib/utils";
 import { ValidatorContract, ValidatorMinter } from "./scripts/scripts";
 import { mintingPolicyToId, Validator } from "@lucid-evolution/lucid";
 

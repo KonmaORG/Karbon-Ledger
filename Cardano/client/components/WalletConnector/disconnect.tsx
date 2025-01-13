@@ -2,7 +2,7 @@
 import { useWallet } from "@/context/walletContext";
 import { Button } from "../ui/button";
 import { emulator } from "@/config/emulator";
-import { getAddress } from "@/libs/utils";
+import { getAddress } from "@/lib/utils";
 import { ConfigDatumHolderValidator, ValidatorContract, ValidatorMinter } from "@/config/scripts/scripts";
 
 export default function DisconnectButton() {

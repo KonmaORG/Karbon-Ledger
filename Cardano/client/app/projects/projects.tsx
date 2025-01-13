@@ -2,7 +2,7 @@
 import { Button } from '@/components/ui/button'
 import { PID_MINTER, VALIDATOR_CONTRACT_ADDRESS } from '@/config/constants'
 import { useWallet } from '@/context/walletContext'
-import { acceptProject, rejectProject } from '@/libs/transactions'
+import { acceptProject, rejectProject } from '@/lib/transactions'
 import { UTxO } from '@lucid-evolution/lucid'
 import React, { useEffect, useState } from 'react'
 

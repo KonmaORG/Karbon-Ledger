@@ -10,16 +10,16 @@ export default function Home() {
   const [walletConnection, setWalletConnection] = useWallet();
   const { address } = walletConnection;
 
-  // if (!address) {
-  //   return (
-  //     <div className="space-y-6 mx-auto max-w-2xl flex flex-col min-h-screen items-center">
-  //       <WalletConnector />
-  //     </div>
-  //   )
-  // }
+  if (!address) {
+    return (
+      <div className="space-y-6 mx-auto max-w-2xl flex flex-col min-h-screen items-center">
+        <WalletConnector />
+      </div>
+    )
+  }
   return (
     <div className="space-y-6 mx-auto max-w-2xl flex flex-col min-h-screen items-center">
-      <EmulatorConnector />
+      {/* <EmulatorConnector /> */}
       <DisconnectButton />
       <Identification />
       <ConfigDatumHolder />

@@ -11,13 +11,13 @@ import {
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { IdentificationRedeemerSchema } from "@/types/cardano";
-import { getAddress, multiSignwithPrivateKey, privateKeytoAddress } from "@/libs/utils";
+import { getAddress, multiSignwithPrivateKey, privateKeytoAddress } from "@/lib/utils";
 
 export default function Identification() {
   const [WalletConnection] = useWallet();
   const { lucid, address } = WalletConnection;
-  // const [oRef, setORef] = React.useState<Data>(new Constr(0, ["056798e7e1c0884c05ecca2d22f44cabe36f96fd5be81050b89d2d5b41a14dfa", 1n]));
-  const [oRef, setORef] = React.useState<Data>(new Constr(0, ["0000000000000000000000000000000000000000000000000000000000000000", 0n]));
+  const [oRef, setORef] = React.useState<Data>(new Constr(0, ["575f070a4adf2deb599afc791a12a5887fb1f7162bc7ff784f18b630726b46f8", 0n]));
+  // const [oRef, setORef] = React.useState<Data>(new Constr(0, ["0000000000000000000000000000000000000000000000000000000000000000", 0n]));
   // const [oRef, setORef] = React.useState<Data>(new Constr(0, ["8e5d32d440ce6c3f12f89641399b9627c1ab84b9675622b5d6bb0f3555461199", 0n]));
 
 

@@ -9,7 +9,7 @@ import { Check, ChevronsUpDown } from 'lucide-react'
 import { cn } from "@/lib/utils"
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { submitProject } from "@/libs/transactions"
+import { submitProject } from "@/lib/transactions"
 import { useWallet } from "@/context/walletContext"
 
 const categories = ["forest", "water", "air", "deforestration", "Algae Treatment"]
