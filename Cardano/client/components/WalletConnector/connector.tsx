@@ -2,50 +2,51 @@
 import { useEffect, useState } from "react";
 import { Spinner } from "@nextui-org/spinner";
 import { Snippet } from "@nextui-org/snippet";
-import { Button } from "@nextui-org/button";
-import { Lucid } from "@lucid-evolution/lucid";
 import { Skeleton } from "@nextui-org/skeleton";
-import { NETWORK, provider } from "@/config/lucid";
 import { Wallet } from "@/types/cardano";
 import { handleError } from "@/lib/utils";
 import { useWallet } from "@/context/walletContext";
-
-export default function WalletConnectors() {
+import { mkLucid } from "@/lib/lucid";
+import { SUPPORTEDWALLETS } from "./wallets";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Loader2, LogOut } from 'lucide-react';
+import { Button } from "../ui/button";
+import Image from "next/image";
+export default function WalletComponent() {
     const [walletConnection, setWalletConnection] = useWallet();
-    const { lucid } = walletConnection;
+    const { lucid, address, balance } = walletConnection;
 
-    const [wallets, setWallets] = useState<Wallet[]>();
+    const [wallets, setWallets] = useState<Wallet[]>(SUPPORTEDWALLETS);
+    const [isOpen, setIsOpen] = useState(false);
+    const [connecting, setConnecting] = useState<boolean>(false);
 
-    let isInit = false;
     useEffect(() => {
-        if (isInit) return;
-        else isInit = true;
-        Lucid(provider, NETWORK)
-            .then((lucid) => {
-                setWalletConnection((walletConnection) => {
-                    return { ...walletConnection, lucid };
-                })
-                const wallets: Wallet[] = [];
-                const { cardano } = window;
-                for (const c in cardano) {
-                    const wallet = cardano[c];
+        mkLucid(setWalletConnection);
 
-                    if (!wallet.apiVersion) continue;
-                    wallets.push(wallet);
-                }
-                wallets.sort((l, r) => {
-                    return l.name.toUpperCase() < r.name.toUpperCase() ? -1 : 1;
-                });
-                setWallets(wallets);
-            }
-            )
-            .catch((error) =>
-                // toast error
-                console.log(error)
+        const installedWallets: Wallet[] = [];
+        const { cardano } = window;
+        for (const c in cardano) {
+            const wallet = cardano[c];
+
+            if (!wallet.apiVersion) continue;
+            installedWallets.push(wallet);
+        }
+        const updatedPreWallets = wallets.map((preWallet) => {
+            const matchingWallet = installedWallets.find((provider) =>
+                provider.name.toLowerCase().includes(preWallet.name.toLowerCase())
             );
+            return {
+                ...preWallet,
+                ...(matchingWallet && { enable: matchingWallet.enable })
+            };
+        });
+
+        setWallets(updatedPreWallets);
     }, []);
 
     async function onConnectWallet(wallet: Wallet) {
+        setConnecting(true);
+        setIsOpen(false);
         try {
             if (!lucid) throw "Uninitialized Lucid!!!";
 
@@ -54,54 +55,65 @@ export default function WalletConnectors() {
             lucid.selectWallet.fromAPI(api);
 
             const address = await lucid.wallet().address();
+            const balance = parseInt(await api.getBalance())
 
-            setWalletConnection((walletConnection) => {
-                return { ...walletConnection, wallet, address };
+            setWalletConnection((prev) => {
+                return { ...prev, wallet, address, balance };
             });
-            console.log("connected")
         } catch (error) {
+            setConnecting(false);
             handleError(error);
         }
+        setConnecting(false);
     }
 
-    if (!wallets)
-        return (
-            <Snippet hideCopyButton hideSymbol variant="bordered">
-                <Spinner label="Browsing Cardano Wallets" />
-            </Snippet>
-        );
 
-    if (!wallets.length)
-        return (
-            <Snippet hideCopyButton hideSymbol variant="bordered">
-                <p className="uppercase">No Cardano Wallet</p>
-            </Snippet>
-        );
+    function disconnect() {
+        setWalletConnection((prev) => {
+            return {
+                ...prev,
+                wallet: undefined,
+                address: "",
+                balance: undefined,
+            };
+        });
+    }
+
+
 
     return (
         <div className="flex flex-col gap-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/6">
-            {wallets.map((wallet, w) => {
-                return (
-                    <>
-                        <Skeleton
-                            key={`wallet.${w}`}
-                            className="rounded-full"
-                            isLoaded={!!lucid}
-                        >
-                            <Button
-                                fullWidth
-                                className="capitalize"
-                                color="primary"
-                                radius="full"
-                                variant="shadow"
-                                onPress={() => onConnectWallet(wallet)}
-                            >
-                                {wallet.name}
-                            </Button>
-                        </Skeleton>
-                    </>
-                )
-            })}
+            {address ? (
+                <Button variant="outline" onClick={disconnect}><LogOut />Disconnect</Button>
+            ) :
+                <Dialog open={isOpen} onOpenChange={setIsOpen}>
+                    <DialogTrigger asChild>
+                        <Button disabled={connecting}>{connecting ? "Connecting..." : "Connect Wallet"}</Button>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-[425px]">
+
+                        <DialogHeader>
+                            <DialogTitle>Connect Wallet</DialogTitle>
+                            <DialogDescription>
+                                Choose a wallet to connect to your account.
+                            </DialogDescription>
+                        </DialogHeader>
+                        <div className="flex gap-4 py-4 w-full">
+                            {wallets.map((wallet) => (
+                                <Button
+                                    key={wallet.name}
+                                    onClick={() => onConnectWallet(wallet)}
+                                    disabled={!wallet.enable}
+                                    className="w-full"
+                                >
+                                    <Image src={wallet.icon} alt={wallet.name} width={20} height={20} />
+                                    {wallet.name}
+                                </Button>
+                            ))}
+                        </div>
+                    </DialogContent>
+                </Dialog>
+            }
         </div>
     );
 }

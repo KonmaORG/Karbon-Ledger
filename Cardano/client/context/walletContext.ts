@@ -13,6 +13,7 @@ export type WalletConnection = {
     lucid?: LucidEvolution;
     wallet?: Wallet;
     address?: Address;
+    balance?: number;
 };
 
 export const WalletContext = createContext<

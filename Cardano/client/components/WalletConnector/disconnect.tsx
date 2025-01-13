@@ -6,18 +6,9 @@ import { getAddress } from "@/lib/utils";
 import { ConfigDatumHolderValidator, ValidatorContract, ValidatorMinter } from "@/config/scripts/scripts";
 
 export default function DisconnectButton() {
-    const [walletConnection, setWalletConnection] = useWallet();
+    const [walletConnection] = useWallet();
     const { lucid } = walletConnection
 
-    function disconnect() {
-        setWalletConnection((walletConnection) => {
-            return {
-                ...walletConnection,
-                wallet: undefined,
-                address: "",
-            };
-        });
-    }
 
     async function logContracts() {
         if (!lucid) throw new Error("Lucid not initialized")
@@ -45,12 +36,6 @@ export default function DisconnectButton() {
     }
     return (
         <div className="flex space-x-4">
-            <Button
-                className=""
-                onClick={disconnect}
-            >
-                Disconnect
-            </Button>
             <Button onClick={emulatorlog} className="w-fit bg-amber-400">Emulator Log</Button>
             <Button onClick={awaitemulator} className="w-fit bg-amber-400">Await Emulator</Button>
         </div>
