@@ -71,13 +71,24 @@ export async function submitProject(walletConnection: WalletConnection, fileHash
         .pay.ToAddressWithData(
             validatorContractAddress,
             { kind: "inline", value: Data.to(datum, KarbonDatum) },
-            { lovelace: 5_000_000n, ...mintedAssets }
+            { lovelace: 3_000_000n, ...mintedAssets }
         )
         .pay.ToAddress(await privateKeytoAddress(SIGNER3), {
             lovelace: 100_000_000n,
         })
         .mintAssets(mintedAssets, redeemer)
         .attach.MintingPolicy(mintingValidator)
+        .attachMetadata(
+            721,
+            {
+                [policyID]: {
+                    [projectAssetName]: {
+                        name: projectAssetName,
+                        image: "https://avatars.githubusercontent.com/u/106166350",
+                    },
+                },
+            }
+        )
         .complete();
 
 

@@ -50,12 +50,23 @@ export default function Projects() {
         }
         setSubmitting(false)
     }
+
+    async function metadata(utxo: UTxO) {
+        const asset = Object.entries(utxo.assets)
+            .filter(([key]) => key.startsWith(PID_MINTER))
+            .map(([key]) => key);
+
+        console.log(asset[0])
+        const a = await lucid?.metadataOf(asset[0])
+        return "abc"
+    }
     return (
         <>
             {projects.map((utxo) => {
                 return (
                     <div key={utxo.txHash + utxo.outputIndex} className='space-x-2'>
                         <span>{utxo.txHash}#{utxo.outputIndex}</span>
+                        <>{metadata(utxo)}</>
                         <Button onClick={() => handleAccept(utxo)} disabled={submitting}>{submitting ? "Accepting..." : "Accept"}</Button>
                         <Button variant={'destructive'} onClick={() => { handleReject(utxo) }} disabled={rejecting}>{rejecting ? "Rejecting..." : "Reject"}</Button>
                     </div>
