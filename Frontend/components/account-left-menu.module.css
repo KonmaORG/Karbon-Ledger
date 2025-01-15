@@ -1,0 +1,81 @@
+.profileBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0 3.5px 5.5px rgba(0, 0, 0, 0.02);
+  border-radius: var(--br-xs);
+  background-color: var(--gradient-form-text);
+  width: 30px;
+  height: 30px;
+}
+.ioniconppersondefault {
+  position: absolute;
+  top: 7.5px;
+  left: 7.5px;
+  width: 15px;
+  height: 15px;
+  overflow: hidden;
+}
+.profile1 {
+  position: absolute;
+  top: 6px;
+  left: 42px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  min-width: 37.5px;
+}
+.profile {
+  position: absolute;
+  top: 42px;
+  left: 0;
+  width: 79.5px;
+  height: 30px;
+  cursor: pointer;
+}
+.signOut1 {
+  position: absolute;
+  top: 6px;
+  left: 42px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+}
+.logOutOutlineIcon {
+  position: absolute;
+  top: 5px;
+  left: 8px;
+  width: 19px;
+  height: 20px;
+  overflow: hidden;
+}
+.accountPages,
+.signOut {
+  position: absolute;
+  left: 0;
+}
+.signOut {
+  top: 96px;
+  width: 100%;
+  height: 30px;
+  cursor: pointer;
+}
+.accountPages {
+  top: 0;
+  line-height: 150%;
+  color: var(--gray-gray-700);
+  display: flex;
+  align-items: center;
+  min-width: 105px;
+}
+.accountLeftMenu {
+  position: absolute;
+  top: 486px;
+  left: 30px;
+  width: 115px;
+  height: 126px;
+  text-align: left;
+  font-size: var(--font-size-xs);
+  color: var(--form-box);
+  font-family: var(--table-title-text);
+}

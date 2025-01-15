@@ -1,0 +1,75 @@
+.backgroundCard {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-xs);
+  background-color: var(--gradient-form-text);
+  width: 100%;
+  height: 100%;
+}
+.imageCardIcon {
+  position: absolute;
+  width: calc(100% - 22.6px);
+  top: 15.8px;
+  right: 11.3px;
+  left: 11.3px;
+  max-width: 100%;
+  overflow: hidden;
+  height: 155.1px;
+  object-fit: cover;
+}
+.noOfAvailable {
+  top: 266px;
+  left: 11.3px;
+  display: inline-block;
+  min-width: 109.8px;
+}
+.ada,
+.noOfAvailable,
+.projectName,
+.regionCountry {
+  position: absolute;
+  line-height: 140%;
+}
+.projectName {
+  margin: 0;
+  top: 180px;
+  left: 11px;
+  font-size: var(--table-title-text-size);
+  font-weight: 400;
+  font-family: inherit;
+}
+.ada,
+.regionCountry {
+  display: inline-block;
+}
+.ada {
+  top: 243.4px;
+  left: 11.3px;
+  font-size: var(--table-title-text-size);
+  min-width: 55.5px;
+}
+.regionCountry {
+  top: 266px;
+  left: 201.5px;
+  min-width: 87.2px;
+}
+.projectDescription {
+  position: absolute;
+  top: 203px;
+  left: 11px;
+  line-height: 140%;
+  color: var(--color-dimgray);
+}
+.projectCard6 {
+  position: absolute;
+  top: 457px;
+  left: 656px;
+  width: 300px;
+  height: 300px;
+  cursor: pointer;
+  text-align: left;
+  font-size: var(--graph-text-size);
+  color: var(--table-list-color);
+  font-family: var(--table-title-text);
+}

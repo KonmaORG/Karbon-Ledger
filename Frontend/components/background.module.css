@@ -1,0 +1,288 @@
+.backgroundChild {
+  width: 452.5px;
+  height: 713.5px;
+  position: relative;
+  box-shadow: 0 7px 23px rgba(0, 0, 0, 0.05);
+  border-radius: var(--br-mini);
+  background-color: var(--gradient-form-text);
+  display: none;
+  max-width: 100%;
+}
+.registerWith {
+  flex: 1;
+  position: relative;
+  font-size: var(--table-title-text-size);
+  line-height: 140%;
+  font-family: var(--table-title-text);
+  color: var(--gray-gray-700);
+  text-align: center;
+  z-index: 1;
+}
+.registerOptions {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 var(--padding-99xl);
+}
+.facebookIcon,
+.name {
+  position: absolute;
+  z-index: 1;
+}
+.name {
+  top: 137.5px;
+  left: 0;
+  font-size: var(--table-title-text-size);
+  line-height: 140%;
+  font-family: var(--table-title-text);
+  color: var(--gray-gray-700);
+  text-align: left;
+  display: inline-block;
+  width: 59px;
+  height: 20px;
+}
+.facebookIcon {
+  top: 0;
+  left: 42.5px;
+  width: 75px;
+  height: 75px;
+}
+.facebookName {
+  height: 157.5px;
+  width: 117.5px;
+  position: relative;
+}
+.appleIcon,
+.or {
+  position: relative;
+  z-index: 1;
+}
+.appleIcon {
+  width: 75px;
+  height: 75px;
+}
+.or {
+  flex: 1;
+  font-size: var(--title-text-size);
+  line-height: 140%;
+  font-family: var(--table-title-text);
+  color: var(--form-box);
+  text-align: center;
+}
+.appleLogin,
+.orLabel {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.orLabel {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 var(--padding-8xl) 0 var(--padding-9xl);
+}
+.appleLogin {
+  flex: 1;
+  flex-direction: column;
+  gap: var(--gap-xl-5);
+}
+.googleChild {
+  height: 75px;
+  width: 75px;
+  position: relative;
+  border-radius: var(--br-mini);
+  border: 1px solid var(--color-aliceblue);
+  box-sizing: border-box;
+  display: none;
+}
+.ioniconllogogoogle {
+  height: 24px;
+  width: 24px;
+  position: relative;
+  z-index: 1;
+}
+.google {
+  border-radius: var(--br-mini);
+  border: 1px solid var(--color-aliceblue);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-5xl) var(--padding-6xl);
+  z-index: 1;
+}
+.appleGoogleLogin,
+.facebookLogin {
+  flex: 1;
+  flex-direction: row;
+  gap: var(--gap-mini);
+}
+.appleGoogleLogin,
+.facebookLogin,
+.socialButtons,
+.socialLogin {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.socialButtons {
+  flex-direction: row;
+  padding: 0 var(--padding-8xs);
+}
+.socialLogin {
+  align-self: stretch;
+  flex-direction: column;
+  gap: var(--gap-8xs);
+}
+.password {
+  flex: 1;
+  position: relative;
+  font-size: var(--table-title-text-size);
+  line-height: 140%;
+  font-family: var(--table-title-text);
+  color: var(--gray-gray-700);
+  text-align: left;
+  z-index: 1;
+}
+.passwordLabel {
+  width: 106px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-9xs) 0 var(--padding-8xs);
+  box-sizing: border-box;
+}
+.email {
+  border: 0;
+  background-color: transparent;
+  align-self: stretch;
+  font-family: var(--table-title-text);
+  font-size: var(--table-title-text-size);
+  color: var(--form-box);
+  z-index: 1;
+}
+.toggleCircle {
+  width: 13.5px;
+  height: 13.5px;
+  position: relative;
+  border-radius: 50%;
+  background-color: var(--gradient-form-text);
+}
+.switchbase {
+  width: 36px;
+  border-radius: var(--br-78xl-7);
+  background-color: var(--icon-color);
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  padding: var(--padding-11xs-4) var(--padding-11xs) var(--padding-11xs-4)
+    var(--padding-12xs);
+  box-sizing: border-box;
+  z-index: 1;
+}
+.passwordInput,
+.passwordOptions,
+.rememberMe {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.rememberMe {
+  width: 160px;
+  flex-direction: row;
+  gap: var(--gap-3xs);
+}
+.passwordInput,
+.passwordOptions {
+  align-self: stretch;
+  flex-direction: column;
+  gap: var(--gap-5xl);
+}
+.passwordInput {
+  padding: 0 0 var(--padding-sm);
+  gap: var(--gap-8xs);
+}
+.buttonbase {
+  align-self: stretch;
+  height: 45px;
+  z-index: 1;
+}
+.alreadyHaveAn {
+  flex: 1;
+  position: relative;
+  font-size: var(--table-title-text-size);
+  line-height: 140%;
+  font-family: var(--table-title-text);
+  color: var(--table-list-color);
+  text-align: center;
+  cursor: pointer;
+  z-index: 1;
+}
+.background,
+.signinPrompt {
+  display: flex;
+  box-sizing: border-box;
+}
+.signinPrompt {
+  width: 314px;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 var(--padding-14xl) 0 var(--padding-13xl);
+}
+.background {
+  margin: 0;
+  align-self: stretch;
+  flex: 1;
+  box-shadow: 0 7px 23px rgba(0, 0, 0, 0.05);
+  border-radius: var(--br-mini);
+  background-color: var(--gradient-form-text);
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: var(--padding-26xl-5) var(--padding-32xl);
+  gap: var(--gap-3xl);
+  max-width: 100%;
+}
+@media screen and (max-width: 900px) {
+  .background {
+    padding-top: var(--padding-11xl);
+    padding-bottom: var(--padding-11xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 767px) {
+  .background {
+    padding-top: var(--padding-11xl);
+    padding-bottom: var(--padding-11xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .registerOptions {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .facebookName {
+    flex: 1;
+  }
+  .facebookLogin {
+    flex-wrap: wrap;
+  }
+  .background,
+  .buttonbase {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .background {
+    padding-left: var(--padding-6xl);
+    padding-right: var(--padding-6xl);
+  }
+}

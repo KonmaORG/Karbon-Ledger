@@ -1,0 +1,196 @@
+.standardsChild {
+  width: 638px;
+  height: 803px;
+  position: relative;
+  border-radius: var(--br-xs);
+  background-color: var(--gradient-form-text);
+  display: none;
+  max-width: 100%;
+}
+.price,
+.registry,
+.standardLabels,
+.standardLabels1 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-5xs) var(--padding-8xs) var(--padding-8xs);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.price,
+.standardLabels,
+.standardLabels1 {
+  padding: 0 var(--padding-3xs) 0 var(--padding-10xs);
+}
+.price,
+.standardLabels1 {
+  padding: 0 var(--padding-8xs) 0 var(--padding-5xs);
+}
+.price {
+  padding: 0 0 var(--padding-2xs) var(--padding-smi);
+}
+.locationData {
+  flex: 1;
+  position: relative;
+  line-height: 140%;
+  z-index: 1;
+}
+.location,
+.standardDetails,
+.standardFields {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.location {
+  width: 181px;
+  flex-direction: row;
+  padding: 0 var(--padding-mid) 0 var(--padding-lg);
+  box-sizing: border-box;
+}
+.standardDetails,
+.standardFields {
+  flex-direction: column;
+  max-width: 100%;
+}
+.standardFields {
+  align-self: stretch;
+  gap: var(--gap-6xl);
+}
+.standardDetails {
+  width: 363px;
+  padding: var(--padding-4xl) 0 0;
+  box-sizing: border-box;
+}
+.closeCircleIcon {
+  height: 33px;
+  width: 33px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+.standardsContent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 100%;
+  gap: var(--gap-xl);
+}
+.plotListChild {
+  height: 45px;
+  flex: 1;
+  min-width: 114px;
+  z-index: 1;
+}
+.frameChild {
+  height: 45px;
+  width: 152px;
+  position: relative;
+  border-radius: var(--br-xs);
+  background-color: var(--color-gainsboro);
+  display: none;
+}
+.plot3,
+.sqFt {
+  margin: 0;
+}
+.sqFt {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray);
+}
+.plot3150Container {
+  height: 29px;
+  position: relative;
+  line-height: 140%;
+  display: inline-block;
+  z-index: 1;
+}
+.plotList,
+.plots,
+.rectangleParent,
+.standards {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.rectangleParent {
+  flex: 1;
+  border-radius: var(--br-xs);
+  background-color: var(--color-gainsboro);
+  flex-direction: row;
+  padding: var(--padding-4xs) var(--padding-3xl) var(--padding-6xs);
+  box-sizing: border-box;
+  min-width: 114px;
+  z-index: 1;
+}
+.plotList,
+.plots,
+.standards {
+  max-width: 100%;
+}
+.plotList {
+  flex: 1;
+  flex-direction: row;
+  gap: var(--gap-7xl);
+}
+.plots,
+.standards {
+  box-sizing: border-box;
+}
+.plots {
+  width: 534px;
+  flex-direction: row;
+  padding: 0 var(--padding-smi);
+  color: var(--table-list-color);
+}
+.standards {
+  border-radius: var(--br-xs);
+  background-color: var(--gradient-form-text);
+  flex-direction: column;
+  padding: var(--padding-base) var(--padding-xl) var(--padding-94xl)
+    var(--padding-38xl);
+  gap: var(--gap-47xl);
+  min-width: 638px;
+  text-align: left;
+  font-size: var(--table-title-text-size);
+  color: var(--header-text-color);
+  font-family: var(--table-title-text);
+}
+@media screen and (max-width: 1100px) {
+  .standards {
+    flex: 1;
+  }
+}
+@media screen and (max-width: 1025px) {
+  .standards {
+    padding-top: var(--padding-xl);
+    padding-bottom: var(--padding-54xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 750px) {
+  .plotList,
+  .standardsContent {
+    flex-wrap: wrap;
+  }
+  .standards {
+    gap: var(--gap-14xl);
+    padding-left: var(--padding-9xl);
+    box-sizing: border-box;
+    min-width: 100%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .standards {
+    gap: var(--gap-base);
+    padding-bottom: var(--padding-28xl);
+    box-sizing: border-box;
+  }
+}

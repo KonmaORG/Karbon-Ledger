@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Aksara Bali Galang:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Font Awesome 5 Free:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  margin: 0;
+  line-height: normal;
+}
+:root {
+  /* fonts */
+  --table-title-text: "Aksara Bali Galang";
+  --font-font-awesome-5-free: "Font Awesome 5 Free";
+
+  /* font sizes */
+  --table-title-text-size: 14px;
+  --title-text-size: 18px;
+  --graph-text-size: 10px;
+  --stats-subtext-size: 16px;
+  --stats-text-size: 40px;
+  --font-size-5xl: 24px;
+  --welcome-text-size: 32px;
+  --font-size-xs: 12px;
+  --font-size-lgi: 19px;
+  --font-size-7xl: 26px;
+  --font-size-6xs: 7px;
+  --font-size-2xs: 11px;
+
+  /* Colors */
+  --gradient-form-text: #fff;
+  --table-list-color: #000;
+  --gray-gray-700: #2d3748;
+  --header-text-color: #0c3d37;
+  --icon-color: #0a3834;
+  --form-box: #a0aec0;
+  --color-aliceblue: #e2e8f0;
+  --dashboard-bg: #f8f9fa;
+  --status-button: #7fbb9b;
+  --color-silver-100: #c4c4c4;
+  --color-silver-200: #c3c3c3;
+  --color-gainsboro: #d9d9d9;
+  --color-gray: #898989;
+  --reject-button: #fa4545;
+  --color-dimgray: #575756;
+
+  /* Gaps */
+  --gap-13xl: 32px;
+  --gap-base: 16px;
+  --gap-3xl: 22px;
+  --gap-8xs: 5px;
+  --gap-5xl: 24px;
+  --gap-3xs: 10px;
+  --gap-7xs: 6px;
+  --gap-mini: 15px;
+  --gap-xl-5: 20.5px;
+  --gap-mid: 17px;
+  --gap-sm: 14px;
+  --gap-2xs: 11px;
+  --gap-7xl: 26px;
+  --gap-6xs: 7px;
+  --gap-8xs-5: 4.5px;
+  --gap-xl: 20px;
+  --gap-30xl: 49px;
+  --gap-lgi: 19px;
+  --gap-21xl: 40px;
+  --gap-111xl: 130px;
+  --gap-5xs: 8px;
+  --gap-6xs-5: 6.5px;
+  --gap-xs: 12px;
+  --gap-17xl: 36px;
+  --gap-47xl: 66px;
+  --gap-14xl: 33px;
+  --gap-6xl: 25px;
+  --gap-lg: 18px;
+  --gap-92xl: 111px;
+  --gap-36xl: 55px;
+  --gap-64xl: 83px;
+  --gap-9xs: 4px;
+  --gap-13xl-6: 32.6px;
+  --gap-29xl: 48px;
+  --gap-19xl: 38px;
+  --gap-3xs-9: 9.9px;
+  --gap-7xs-7: 5.7px;
+
+  /* Paddings */
+  --padding-24xl: 43px;
+  --padding-87xl: 106px;
+  --padding-34xl: 53px;
+  --padding-xl: 20px;
+  --padding-26xl-5: 45.5px;
+  --padding-32xl: 51px;
+  --padding-11xl: 30px;
+  --padding-6xl: 25px;
+  --padding-14xl: 33px;
+  --padding-13xl: 32px;
+  --padding-sm: 14px;
+  --padding-11xs-4: 1.4px;
+  --padding-11xs: 2px;
+  --padding-12xs: 1px;
+  --padding-9xs: 4px;
+  --padding-8xs: 5px;
+  --padding-5xl: 24px;
+  --padding-8xl: 27px;
+  --padding-9xl: 28px;
+  --padding-99xl: 118px;
+  --padding-5xs: 8px;
+  --padding-27xl: 46px;
+  --padding-3xl: 22px;
+  --padding-2xl: 21px;
+  --padding-10xs: 3px;
+  --padding-4xs: 9px;
+  --padding-xs: 12px;
+  --padding-33xl: 52px;
+  --padding-smi: 13px;
+  --padding-59xl-4: 78.4px;
+  --padding-2xs: 11px;
+  --padding-7xs: 6px;
+  --padding-3xs: 10px;
+  --padding-base: 16px;
+  --padding-5xs-5: 7.5px;
+  --padding-7xs-5: 5.5px;
+  --padding-6xs: 7px;
+  --padding-94xl: 113px;
+  --padding-38xl: 57px;
+  --padding-28xl: 47px;
+  --padding-54xl: 73px;
+  --padding-4xl: 23px;
+  --padding-mid: 17px;
+  --padding-lg: 18px;
+  --padding-mini: 15px;
+  --padding-113xl: 132px;
+  --padding-15xl-5: 34.5px;
+  --padding-39xl: 58px;
+  --padding-19xl: 38px;
+  --padding-144xl: 163px;
+  --padding-15xl: 34px;
+  --padding-base-5: 16.5px;
+  --padding-55xl: 74px;
+  --padding-12xs-5: 0.5px;
+  --padding-90xl: 109px;
+
+  /* Border radiuses */
+  --br-mini: 15px;
+  --br-78xl-7: 97.7px;
+  --br-xs: 12px;
+  --br-15xl-5: 34.5px;
+}
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+@layer utilities {
+  .border-border {
+    border-width: 1px;
+    border-color: var(--tw-border-color, black);
+  }
+}

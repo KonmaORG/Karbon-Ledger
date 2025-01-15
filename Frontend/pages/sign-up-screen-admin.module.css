@@ -1,0 +1,80 @@
+.logoIcon {
+  height: 200px;
+  width: 200px;
+  position: relative;
+  object-fit: cover;
+}
+.authOptions,
+.signUpScreenAdmin {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+.authOptions {
+  height: 854.5px;
+  flex-direction: column;
+  padding: 141px 0 0;
+  min-width: 452.5px;
+  max-width: 100%;
+}
+.signUpScreenAdmin {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  flex-direction: row;
+  padding: var(--padding-24xl) var(--padding-87xl) 126.5px;
+  gap: var(--gap-13xl);
+  background-image: url(/sign-up-screen--admin@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  line-height: normal;
+  letter-spacing: normal;
+}
+@media screen and (max-width: 900px) {
+  .logoIcon {
+    flex: 1;
+  }
+  .authOptions {
+    flex: 1;
+    padding-top: 92px;
+    box-sizing: border-box;
+    min-width: 100%;
+  }
+  .signUpScreenAdmin {
+    flex-wrap: wrap;
+    padding-left: var(--padding-34xl);
+    padding-right: var(--padding-34xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 767px) {
+  .logoIcon {
+    flex: 1;
+  }
+  .authOptions {
+    flex: 1;
+    padding-top: 92px;
+    box-sizing: border-box;
+    min-width: 100%;
+  }
+  .signUpScreenAdmin {
+    flex-wrap: wrap;
+    padding-left: var(--padding-34xl);
+    padding-right: var(--padding-34xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .authOptions {
+    padding-top: 60px;
+    box-sizing: border-box;
+  }
+  .signUpScreenAdmin {
+    gap: var(--gap-base);
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+}

@@ -1,0 +1,62 @@
+.logoIcon {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  max-height: 100%;
+  width: 150px;
+  object-fit: cover;
+}
+.connectWallet {
+  position: absolute;
+  height: 23.33%;
+  width: 10.92%;
+  top: 34%;
+  right: 27.31%;
+  bottom: 42.67%;
+  left: 61.76%;
+  cursor: pointer;
+}
+.searchBar {
+  border: 0;
+  background-color: transparent;
+  position: absolute;
+  height: 100%;
+  width: 59.4%;
+  top: 0;
+  right: 40.6%;
+  bottom: 0;
+  left: 0;
+  font-family: var(--table-title-text);
+  font-size: var(--table-title-text-size);
+  color: var(--form-box);
+}
+.ioniconnnotificationsdefaul,
+.ioniconssettingssharp,
+.topRightMenuBar {
+  position: absolute;
+  top: 14px;
+  left: 294px;
+  width: 12px;
+  height: 12px;
+}
+.ioniconnnotificationsdefaul,
+.topRightMenuBar {
+  left: 323px;
+}
+.topRightMenuBar {
+  height: 26.33%;
+  width: 24.4%;
+  top: 30.67%;
+  right: 0;
+  bottom: 43%;
+  left: 75.6%;
+}
+.topMenuBar {
+  position: absolute;
+  top: 8px;
+  left: 37px;
+  width: 1373px;
+  height: 150px;
+}

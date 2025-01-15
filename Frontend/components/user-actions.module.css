@@ -1,0 +1,229 @@
+.accountPages {
+  position: relative;
+  line-height: 150%;
+  display: inline-block;
+  min-width: 106px;
+}
+.accountPagesWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-4xs) 0 var(--padding-3xs);
+  color: var(--gray-gray-700);
+}
+.signOutIconContainerChild {
+  height: 30px;
+  width: 30px;
+  position: relative;
+  box-shadow: 0 3.5px 5.5px rgba(0, 0, 0, 0.02);
+  border-radius: var(--br-xs);
+  background-color: var(--gradient-form-text);
+  display: none;
+}
+.ioniconppersondefault {
+  height: 15px;
+  width: 15px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.signOutIconContainer {
+  box-shadow: 0 3.5px 5.5px rgba(0, 0, 0, 0.02);
+  border-radius: var(--br-xs);
+  background-color: var(--gradient-form-text);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-5xs-5) var(--padding-6xs);
+}
+.profile {
+  position: relative;
+  line-height: 150%;
+  display: inline-block;
+  min-width: 38.5px;
+}
+.signOutDropdown,
+.signOutLabelContainer,
+.signOutOption {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.signOutLabelContainer {
+  flex-direction: column;
+  padding: var(--padding-7xs) 0 0;
+}
+.signOutDropdown,
+.signOutOption {
+  flex-direction: row;
+}
+.signOutOption {
+  gap: var(--gap-xs);
+}
+.signOutDropdown {
+  padding: 0 var(--padding-3xs);
+}
+.frameChild {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0 3.5px 5.5px rgba(0, 0, 0, 0.02);
+  border-radius: var(--br-xs);
+  background-color: var(--gradient-form-text);
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.logOutOutlineIcon {
+  position: absolute;
+  top: 5px;
+  left: 8px;
+  width: 19px;
+  height: 20px;
+  overflow: hidden;
+  z-index: 1;
+}
+.rectangleParent {
+  height: 30px;
+  width: 30px;
+  position: relative;
+  box-shadow: 0 3.5px 5.5px rgba(0, 0, 0, 0.02);
+  border-radius: var(--br-xs);
+  background-color: var(--gradient-form-text);
+}
+.signOut1 {
+  align-self: stretch;
+  position: relative;
+  line-height: 150%;
+}
+.signOut,
+.signOutDropdown1,
+.signOutWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.signOutWrapper {
+  flex: 1;
+  flex-direction: column;
+  padding: var(--padding-7xs) 0 0;
+}
+.signOut,
+.signOutDropdown1 {
+  flex-direction: row;
+}
+.signOut {
+  flex: 1;
+  gap: var(--gap-xs);
+  cursor: pointer;
+}
+.signOutDropdown1 {
+  width: 135px;
+  padding: 0 var(--padding-3xs);
+  box-sizing: border-box;
+}
+.backgroundChild,
+.iconChild {
+  position: relative;
+  display: none;
+}
+.backgroundChild {
+  width: 229px;
+  height: 169.5px;
+  border-radius: var(--br-mini);
+  background: linear-gradient(180deg, #10433d, #25665e);
+}
+.iconChild {
+  height: 35px;
+  width: 36.8px;
+  border-radius: var(--br-xs);
+  background-color: var(--gradient-form-text);
+}
+.ioniconhhelpcircle {
+  height: 24px;
+  width: 25.2px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.helpIconContainer,
+.icon {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.icon {
+  width: 36.8px;
+  border-radius: var(--br-xs);
+  background-color: var(--gradient-form-text);
+  padding: var(--padding-7xs-5) var(--padding-8xs);
+  box-sizing: border-box;
+  z-index: 2;
+}
+.helpIconContainer {
+  padding: 0 0 var(--padding-5xs-5);
+}
+.needHelp {
+  position: relative;
+  line-height: 140%;
+  display: inline-block;
+  min-width: 80.8px;
+  z-index: 2;
+}
+.helpMessage {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 0 var(--padding-12xs);
+}
+.pleaseCheckOur {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--font-size-xs);
+  line-height: 150%;
+  z-index: 2;
+}
+.helpMessageParent {
+  width: 177.5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-6xs-5);
+}
+.buttonbase {
+  align-self: stretch;
+  height: 35px;
+  z-index: 2;
+}
+.background,
+.userActions {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.background {
+  border-radius: var(--br-mini);
+  background: linear-gradient(180deg, #10433d, #25665e);
+  overflow: hidden;
+  padding: var(--padding-base);
+  gap: var(--gap-5xs);
+  font-size: var(--table-title-text-size);
+  color: var(--gradient-form-text);
+}
+.userActions {
+  margin: 0;
+  gap: var(--gap-5xl);
+  text-align: left;
+  font-size: var(--font-size-xs);
+  color: var(--form-box);
+  font-family: var(--table-title-text);
+}

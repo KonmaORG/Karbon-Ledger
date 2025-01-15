@@ -1,0 +1,9 @@
+.adminProjectPage {
+  width: 100%;
+  height: 1024px;
+  position: relative;
+  background-color: var(--dashboard-bg);
+  overflow: hidden;
+  line-height: normal;
+  letter-spacing: normal;
+}

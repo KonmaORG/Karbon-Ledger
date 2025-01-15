@@ -1,0 +1,137 @@
+.logoIcon {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  object-fit: cover;
+}
+.homeLinkContainerChild {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-xs);
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.homeIcon {
+  position: absolute;
+  top: 5px;
+  left: 4px;
+  width: 21px;
+  height: 21px;
+  overflow: hidden;
+  z-index: 1;
+}
+.homeLinkContainer {
+  height: 30px;
+  width: 30px;
+  position: relative;
+  border-radius: var(--br-xs);
+  background-color: var(--icon-color);
+}
+.dashboard {
+  position: relative;
+  line-height: 150%;
+}
+.dashboardLinkContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-7xs) 0 0;
+}
+.navigationLinks {
+  flex-direction: row;
+  gap: var(--gap-5xs);
+}
+.headerRight,
+.navigationLinks,
+.pageHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.headerRight {
+  flex-direction: row;
+  padding: 0 var(--padding-4xs);
+}
+.pageHeader {
+  flex-direction: column;
+  gap: var(--gap-xs);
+}
+.nestedMenuItemChild {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-xs);
+  background-color: var(--icon-color);
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.leafIcon {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 17px;
+  height: 16px;
+  overflow: hidden;
+  z-index: 1;
+}
+.projects {
+  align-self: stretch;
+  position: relative;
+  line-height: 150%;
+}
+.leftMenu2,
+.menuOptions {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.leftMenu2 {
+  flex: 1;
+  gap: var(--gap-xs);
+  cursor: pointer;
+}
+.menuOptions {
+  width: 123px;
+  padding: 0 var(--padding-4xs);
+  box-sizing: border-box;
+}
+.newspaperIcon {
+  position: absolute;
+  top: 5px;
+  left: 6px;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  z-index: 1;
+}
+.certificatesWrapper {
+  flex: 1;
+  flex-direction: column;
+  padding: var(--padding-7xs) 0 0;
+}
+.certificatesWrapper,
+.menuOptions1,
+.navigationMenu {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.menuOptions1 {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 0 0 var(--padding-4xs);
+}
+.navigationMenu {
+  flex: 1;
+  flex-direction: column;
+  gap: var(--gap-29xl);
+  text-align: left;
+  font-size: var(--font-size-xs);
+  color: var(--gray-gray-700);
+  font-family: var(--table-title-text);
+}
