@@ -1,10 +1,14 @@
 import { ValidatorContract, ValidatorMinter } from "@/config/scripts/scripts";
 import { useWallet, WalletConnection } from "@/context/walletContext";
 import {
+  addressFromHexOrBech32,
   Constr,
+  credentialToAddress,
   Data,
   fromHex,
   fromText,
+  keyHashToCredential,
+  LucidEvolution,
   mintingPolicyToId,
   OutRef,
   paymentCredentialOf,
@@ -26,6 +30,7 @@ import {
 } from "@/types/cardano";
 import { SIGNER1, SIGNER2, SIGNER3 } from "@/config/constants";
 import { blake2bHex } from "blakejs";
+import { NETWORK } from "@/config/lucid";
 
 export async function submit(tx: TxSignBuilder) {
   const signed = await tx.sign.withWallet().complete();
@@ -33,6 +38,17 @@ export async function submit(tx: TxSignBuilder) {
   return txHash;
 }
 
+async function getDatum(lucid: LucidEvolution, utxo: UTxO) {
+  const data = await lucid.datumOf(utxo)
+  const datum = Data.castFrom(data, KarbonDatum);
+  return datum
+}
+
+function hashtoAddress(hash: string) {
+  const credential = keyHashToCredential(hash)
+  const address = credentialToAddress(NETWORK, credential)
+  return address
+}
 export async function submitProject(
   walletConnection: WalletConnection,
   fileHash: string,
@@ -166,6 +182,8 @@ export async function acceptProject(
       .map(([unit, quantity]) => [unit, -quantity]),
   );
 
+  const datum = await getDatum(lucid, utxo)
+  const DeveloperAddress = hashtoAddress(datum.developer)
   // reference Utxo
   const refutxo = await refUtxo(lucid);
 
@@ -198,7 +216,7 @@ export async function acceptProject(
     .newTx()
     .readFrom(refutxo)
     .collectFrom([utxo], Data.to(redeemerValidatorSpend, KarbonRedeemerSpend))
-    .pay.ToAddress(address, { ...carbonMintAssets, lovelace: 100n })
+    .pay.ToAddress(DeveloperAddress, { ...carbonMintAssets, lovelace: 100n })
     .attach.SpendingValidator(validatorContract)
     .mintAssets(burnedAssets, validatorMinterRedeemer)
     .attach.MintingPolicy(mintingValidator)

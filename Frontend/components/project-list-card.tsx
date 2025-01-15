@@ -91,15 +91,6 @@ const ProjectListCard = () => {
 
   return (
     <div className={styles.projectListCard}>
-      {projects.map((utxo) => {
-        return (
-          <div key={utxo.txHash + utxo.outputIndex} className="space-x-2">
-            <span>
-              {utxo.txHash}#{utxo.outputIndex}
-            </span>
-          </div>
-        );
-      })}
       <StyledPaper elevation={3}>
         <Typography
           variant="h5"
