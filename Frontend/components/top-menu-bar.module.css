@@ -1,0 +1,249 @@
+.logoIcon {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  max-height: 100%;
+  width: 150px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.div,
+.icon {
+  align-items: center;
+}
+
+.div {
+  width: 11px;
+  height: 12px;
+  position: relative;
+  line-height: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.icon {
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0 var(--padding-12xs-5);
+}
+
+.text {
+  position: relative;
+  font-size: var(--font-size-xs);
+  line-height: 150%;
+  font-family: var(--table-title-text);
+  color: var(--gradient-form-text);
+}
+
+.buttonBody,
+.heightStructure {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.buttonBody {
+  overflow: hidden;
+  align-items: flex-start;
+  gap: var(--gap-9xs);
+}
+
+.heightStructure {
+  flex: 1;
+  align-items: center;
+}
+
+.content {
+  height: 0;
+  width: 0;
+  position: relative;
+  background-color: var(--table-list-color);
+}
+
+.minwidth {
+  height: 0;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-13xl);
+  box-sizing: border-box;
+}
+
+.connectWallet,
+.widthStructure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.widthStructure {
+  height: 24px;
+  overflow: hidden;
+  flex-direction: column;
+  padding: 0 var(--padding-3xl);
+}
+
+.connectWallet {
+  position: absolute;
+  height: 23.33%;
+  width: 10.92%;
+  top: 34%;
+  right: 27.31%;
+  bottom: 42.67%;
+  left: 61.76%;
+  border-radius: var(--br-15xl-5);
+  background-color: var(--icon-color);
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  padding: 0 var(--padding-5xs);
+  cursor: pointer;
+}
+
+.addons,
+.icon2 {
+  position: relative;
+}
+
+.icon2 {
+  height: 15px;
+  width: 15px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.addons {
+  line-height: 150%;
+  display: none;
+}
+
+.addon,
+.autoAddedFrame {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.addon {
+  justify-content: flex-start;
+  padding: var(--padding-9xs) var(--padding-2xs);
+  gap: var(--gap-8xs);
+}
+
+.autoAddedFrame {
+  align-self: stretch;
+  justify-content: center;
+}
+
+.typeHere {
+  width: 63.5px;
+  position: relative;
+  line-height: 140%;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.passwordTextIcon {
+  width: 35px;
+  height: 3.5px;
+  position: relative;
+  display: none;
+}
+
+.content1 {
+  height: 0;
+  width: 0;
+  position: relative;
+}
+
+.minwidth1 {
+  height: 0;
+  flex-shrink: 0;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--padding-55xl);
+  box-sizing: border-box;
+}
+
+.inputfieldtext,
+.minwidth1,
+.searchBar {
+  overflow: hidden;
+  display: flex;
+}
+
+.inputfieldtext {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: var(--table-title-text-size);
+  color: var(--form-box);
+}
+
+.searchBar {
+  position: absolute;
+  height: 100%;
+  width: 59.4%;
+  top: 0;
+  right: 40.6%;
+  bottom: 0;
+  left: 0;
+  border-radius: var(--br-mini);
+  background-color: var(--gradient-form-text);
+  border: 0.5px solid var(--color-aliceblue);
+  box-sizing: border-box;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 var(--padding-xs) 0 0;
+}
+
+.ioniconnnotificationsdefaul,
+.ioniconssettingssharp,
+.topRightMenuBar {
+  position: absolute;
+  top: 14px;
+  left: 294px;
+  width: 12px;
+  height: 12px;
+}
+
+.ioniconnnotificationsdefaul,
+.topRightMenuBar {
+  left: 323px;
+}
+
+.topRightMenuBar {
+  height: 26.33%;
+  width: 24.4%;
+  top: 30.67%;
+  right: 0;
+  bottom: 43%;
+  left: 75.6%;
+  text-align: left;
+  font-size: var(--font-size-6xs);
+  font-family: var(--table-title-text);
+}
+
+.topMenuBar {
+  position: absolute;
+  top: 8px;
+  left: 37px;
+  width: 1373px;
+  height: 150px;
+  text-align: center;
+  font-size: var(--font-size-2xs);
+  color: var(--table-list-color);
+  font-family: var(--font-font-awesome-5-free);
+}

@@ -1,0 +1,494 @@
+.projectsPageUser {
+  width: 100%;
+  height: 1024px;
+  position: relative;
+  background-color: var(--dashboard-bg);
+  overflow: hidden;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+.projectsCluster {
+  position: absolute;
+  top: 146px;
+  left: 365px;
+  width: 956px;
+  height: 763px;
+  text-align: left;
+  font-size: var(--graph-text-size);
+  color: var(--table-list-color);
+  font-family: var(--table-title-text);
+}
+
+.passwordTextIcon {
+  height: 3.5px;
+  width: 35px;
+  position: relative;
+  display: none;
+}
+
+.navigationContent,
+.topNavigation {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.navigationContent {
+  width: 186px;
+  flex-direction: row;
+  padding: 0 var(--padding-mid);
+  box-sizing: border-box;
+}
+
+.topNavigation {
+  width: 229px;
+  flex-direction: column;
+  gap: var(--gap-111xl);
+}
+
+.connectWallet {
+  width: 150px;
+  cursor: pointer;
+}
+
+.searchBar {
+  border: 0;
+  background-color: transparent;
+  flex: 1;
+  font-family: var(--table-title-text);
+  font-size: var(--table-title-text-size);
+  color: var(--form-box);
+  min-width: 129px;
+}
+
+.connectWalletButton {
+  width: 389px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: var(--gap-21xl);
+  max-width: 100%;
+}
+
+.ioniconssettingssharp {
+  height: 12px;
+  width: 12px;
+  position: relative;
+}
+
+.settingsNotifications,
+.settingsNotificationsIcons {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.settingsNotificationsIcons {
+  flex-direction: row;
+  gap: var(--gap-mid);
+}
+
+.settingsNotifications {
+  flex-direction: column;
+  padding: var(--padding-sm) 0 0;
+}
+
+.walletButtonWrapper {
+  width: 525px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 100%;
+  gap: var(--gap-xl);
+}
+
+.myProfile {
+  margin: 0;
+  flex: 1;
+  position: relative;
+  font-size: inherit;
+  line-height: 150%;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.profileTitleContainer {
+  width: 856px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 218px;
+  box-sizing: border-box;
+  min-height: 93px;
+  max-width: 100%;
+}
+
+.profileImageIcon {
+  height: 146px;
+  width: 146px;
+  position: absolute;
+  margin: 0 !important;
+  top: -84px;
+  left: -50px;
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.profileDetailsChild {
+  width: 880px;
+  height: 613px;
+  position: relative;
+  border-radius: var(--br-xs);
+  background: linear-gradient(180deg, #10433d, #25665e);
+  display: none;
+  max-width: 100%;
+}
+
+.profileAttributes,
+.profileData {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.profileData {
+  align-self: stretch;
+  gap: 33.5px;
+}
+
+.profileAttributes {
+  padding: 69px 0 0;
+  box-sizing: border-box;
+  min-width: 350px;
+  max-width: 100%;
+}
+
+.content {
+  height: 0;
+  width: 0;
+  position: relative;
+}
+
+.edit,
+.minwidth {
+  position: absolute;
+  z-index: 1;
+}
+
+.minwidth {
+  top: 16px;
+  left: 0;
+  height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-55xl);
+  box-sizing: border-box;
+}
+
+.edit {
+  top: 0;
+  left: 194px;
+  line-height: 140%;
+  display: inline-block;
+  width: 29px;
+  height: 20px;
+  min-width: 29px;
+}
+
+.minwidthParent {
+  height: 20px;
+  width: 222px;
+  position: relative;
+}
+
+.editButtonAction {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 0 var(--padding-7xs);
+}
+
+.editButtonContainer,
+.editButtonWrapper,
+.passwordContainerWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+
+.passwordContainerWrapper {
+  width: 352px;
+  flex-direction: row;
+  padding: 0 var(--padding-12xs);
+  box-sizing: border-box;
+}
+
+.editButtonContainer,
+.editButtonWrapper {
+  flex-direction: column;
+}
+
+.editButtonWrapper {
+  align-self: stretch;
+  gap: var(--gap-13xl);
+}
+
+.editButtonContainer {
+  flex: 1;
+  padding: var(--padding-2xs) 0 0;
+  box-sizing: border-box;
+}
+
+.editIcon {
+  height: 25px;
+  width: 26px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.editProfile,
+.profileInformation {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+
+.editProfile {
+  flex: 1;
+  gap: 2px;
+  min-width: 261px;
+}
+
+.profileInformation {
+  width: 789px;
+  gap: var(--gap-19xl);
+}
+
+.profileDetailsItem {
+  width: 176px;
+  height: 35px;
+}
+
+.profileDetails {
+  flex: 1;
+  border-radius: var(--br-xs);
+  background: linear-gradient(180deg, #10433d, #25665e);
+  flex-direction: column;
+  align-items: flex-end;
+  padding: var(--padding-2xl) var(--padding-5xl) var(--padding-32xl);
+  box-sizing: border-box;
+  gap: 145px;
+}
+
+.profileDetails,
+.profileHeader,
+.profileImageContainer {
+  display: flex;
+  justify-content: flex-start;
+
+  max-width: 100%;
+}
+
+.profileImageContainer {
+  align-self: stretch;
+  flex-direction: row;
+  align-items: flex-start;
+  position: relative;
+  text-align: left;
+  font-size: var(--table-title-text-size);
+  color: var(--form-box);
+}
+
+.profileHeader {
+  /* width: 880px;
+     */
+  position: absolute;
+  align-items: flex-end;
+  flex-direction: column;
+  top: 146px;
+  left: 365px;
+  width: 956px;
+  height: 763px;
+  gap: var(--gap-mini);
+  /* text-align: left; */
+  /* font-size: var(--graph-text-size); */
+  /* color: var(--table-list-color); */
+  /* font-family: var(--table-title-text); */
+}
+
+.connectWalletContainer,
+.profileHeaderWrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+
+.connectWalletContainer {
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 76px;
+}
+
+.actionButtons,
+.profilePageAdmin {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+.actionButtons {
+  flex: 1;
+  flex-direction: column;
+  padding: var(--padding-27xl) 0 0;
+  max-width: calc(100% - 425px);
+  text-align: center;
+  font-size: var(--font-size-5xl);
+  color: var(--table-list-color);
+  font-family: var(--table-title-text);
+}
+
+.profilePageAdmin {
+  width: 100%;
+  position: relative;
+  background-color: var(--dashboard-bg);
+  overflow: hidden;
+  flex-direction: row;
+  padding: var(--padding-5xs) var(--padding-11xl) 133px var(--padding-xl);
+  gap: 196px;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+@media screen and (max-width: 975px) {
+  .connectWalletContainer {
+    gap: var(--gap-19xl);
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .topNavigation {
+    display: none;
+  }
+
+  .profileTitleContainer {
+    padding-left: var(--padding-90xl);
+    padding-right: var(--padding-90xl);
+    box-sizing: border-box;
+  }
+
+  .profileAttributes {
+    flex: 1;
+  }
+
+  .profileInformation {
+    flex-wrap: wrap;
+  }
+
+  .profileDetails {
+    gap: 72px;
+  }
+
+  .actionButtons {
+    padding-top: var(--padding-11xl);
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  .profilePageAdmin {
+    gap: 98px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .walletButtonWrapper {
+    flex-wrap: wrap;
+  }
+
+  .profileAttributes {
+    min-width: 100%;
+  }
+
+  .profileDetails {
+    padding-top: var(--padding-xl);
+    padding-bottom: var(--padding-14xl);
+    box-sizing: border-box;
+  }
+
+  .connectWalletContainer {
+    gap: var(--gap-lgi);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .connectWalletButton {
+    gap: var(--gap-xl);
+    flex-wrap: wrap;
+  }
+
+  .myProfile {
+    font-size: var(--font-size-lgi);
+    line-height: 29px;
+  }
+
+  .profileTitleContainer {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+
+  .profileData {
+    gap: var(--gap-mid);
+  }
+
+  .profileAttributes {
+    padding-top: 45px;
+    box-sizing: border-box;
+  }
+
+  .editButtonWrapper {
+    gap: var(--gap-base);
+  }
+
+  .editProfile {
+    flex-wrap: wrap;
+  }
+
+  .profileInformation {
+    gap: var(--gap-lgi);
+  }
+
+  .profileDetails {
+    gap: var(--gap-17xl);
+  }
+
+  .actionButtons {
+    padding-top: var(--padding-xl);
+    box-sizing: border-box;
+  }
+
+  .profilePageAdmin {
+    gap: var(--gap-30xl);
+  }
+}

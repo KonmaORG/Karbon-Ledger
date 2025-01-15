@@ -1,0 +1,124 @@
+.dashboardBackground {
+  position: absolute;
+  top: 65px;
+  left: 0;
+  box-shadow: 0 3.5px 5.5px rgba(0, 0, 0, 0.02);
+  border-radius: var(--br-mini);
+  background-color: var(--gradient-form-text);
+  width: 219.5px;
+  height: 54px;
+}
+
+.dashboardChild {
+  position: absolute;
+  top: 0;
+  left: 16px;
+  border-radius: var(--br-xs);
+  width: 30px;
+  height: 30px;
+}
+
+.dashboard1 {
+  position: absolute;
+  top: 6px;
+  left: 58px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  min-width: 68px;
+  cursor: pointer;
+}
+
+.dashboard,
+.homeIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.homeIcon {
+  top: 5px;
+  left: 20px;
+  width: 21px;
+  height: 21px;
+  overflow: hidden;
+}
+
+.leftMenu3,
+.menuIconBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 119px;
+  cursor: pointer;
+}
+
+.menuIconBackground {
+  border-radius: var(--br-xs);
+  background-color: var(--icon-color);
+  width: 30px;
+  height: 30px;
+}
+
+.leafIcon,
+.projects {
+  position: absolute;
+  top: 6px;
+}
+
+.projects {
+  left: 42px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+}
+
+.leafIcon {
+  left: 6px;
+  width: 17px;
+  height: 16px;
+  overflow: hidden;
+}
+
+.leftMenu2,
+.newspaperIcon {
+  position: absolute;
+  top: 78px;
+  left: 16px;
+  width: 105px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.newspaperIcon {
+  top: 5px;
+  left: 6px;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+}
+
+.leftMenu1 {
+  position: absolute;
+  top: 156px;
+  left: 16px;
+  width: 143px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.leftMenuBar {
+  position: absolute;
+  top: 170px;
+  left: 30px;
+  width: 219.5px;
+  height: 186px;
+  text-align: left;
+  font-size: var(--font-size-xs);
+  color: var(--gray-gray-700);
+  font-family: var(--table-title-text);
+}

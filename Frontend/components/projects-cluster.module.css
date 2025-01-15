@@ -1,0 +1,108 @@
+.backgroundCard {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-xs);
+  background-color: var(--gradient-form-text);
+  width: 100%;
+  height: 100%;
+}
+.imageCardIcon {
+  position: absolute;
+  width: calc(100% - 22.6px);
+  top: 15.8px;
+  right: 11.3px;
+  left: 11.3px;
+  max-width: 100%;
+  overflow: hidden;
+  height: 155.1px;
+  object-fit: cover;
+}
+.noOfAvailable {
+  top: 266px;
+  left: 11.3px;
+  min-width: 109.8px;
+}
+.ada,
+.noOfAvailable,
+.regionCountry {
+  position: absolute;
+  line-height: 140%;
+  display: inline-block;
+}
+.ada {
+  top: 243.4px;
+  left: 11.3px;
+  font-size: var(--table-title-text-size);
+  min-width: 55.5px;
+}
+.regionCountry {
+  top: 266px;
+  left: 201.5px;
+  min-width: 87.2px;
+}
+.projectDescription,
+.projectName {
+  position: relative;
+  line-height: 140%;
+}
+.projectName {
+  margin: 0;
+  width: 126px;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+}
+.projectDescription {
+  align-self: stretch;
+  font-size: var(--graph-text-size);
+  color: var(--color-dimgray);
+}
+.projectNameParent {
+  position: absolute;
+  top: 180px;
+  left: 11px;
+  width: 278px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: var(--table-title-text-size);
+}
+.projectCard3 {
+  position: absolute;
+  top: 122px;
+  left: 656px;
+  width: 300px;
+  height: 300px;
+  cursor: pointer;
+}
+.projects {
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: var(--welcome-text-size);
+  line-height: 140%;
+  font-weight: 400;
+  font-family: inherit;
+  color: var(--gray-gray-700);
+}
+.projectsCluster {
+  position: absolute;
+  top: 146px;
+  left: 365px;
+  width: 956px;
+  height: 763px;
+  text-align: left;
+  font-size: var(--graph-text-size);
+  color: var(--table-list-color);
+  font-family: var(--table-title-text);
+}
+@media screen and (max-width: 450px) {
+  .projects {
+    font-size: var(--font-size-lgi);
+    line-height: 27px;
+  }
+}

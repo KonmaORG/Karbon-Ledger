@@ -1,0 +1,103 @@
+.div,
+.icon {
+  align-items: center;
+}
+.div {
+  width: 11px;
+  height: 12px;
+  position: relative;
+  font-size: var(--font-size-2xs);
+  line-height: 12px;
+  font-family: var(--font-font-awesome-5-free);
+  color: var(--table-list-color);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.icon {
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0 var(--padding-12xs-5);
+}
+.text {
+  position: relative;
+  font-size: var(--font-size-xs);
+  line-height: 150%;
+  font-family: var(--table-title-text);
+  color: var(--gradient-form-text);
+  text-align: center;
+}
+.buttonBody,
+.heightStructure {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.buttonBody {
+  overflow: hidden;
+  align-items: flex-start;
+  gap: var(--gap-9xs);
+}
+.heightStructure {
+  flex: 1;
+  align-items: center;
+  padding: 0 var(--padding-8xs) 0 0;
+}
+.content {
+  height: 0;
+  width: 0;
+  position: relative;
+  background-color: var(--table-list-color);
+}
+.minwidth {
+  height: 0;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-xs);
+  box-sizing: border-box;
+}
+.connectWallet,
+.widthStructure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.widthStructure {
+  height: 24px;
+  overflow: hidden;
+  flex-direction: column;
+  padding: 0 var(--padding-10xs);
+}
+.connectWallet {
+  cursor: pointer;
+  border: 0;
+  padding: 0 var(--padding-5xs);
+  background-color: var(--icon-color);
+  position: absolute;
+  height: 3.42%;
+  width: 10.42%;
+  top: 18.95%;
+  right: 8.26%;
+  bottom: 77.64%;
+  left: 81.32%;
+  border-radius: var(--br-15xl-5);
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.projectsPageUser {
+  width: 100%;
+  height: 1024px;
+  position: relative;
+  background-color: var(--dashboard-bg);
+  overflow: hidden;
+  line-height: normal;
+  letter-spacing: normal;
+}
