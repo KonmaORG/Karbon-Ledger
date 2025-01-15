@@ -27,6 +27,7 @@ import {
 } from "@/lib/utils";
 import { accountB, accountC } from "@/config/emulator";
 import { get } from "http";
+import { CATEGORIES } from "@/config/constants";
 
 export default function ConfigDatumHolder() {
   const [WalletConnection] = useWallet();
@@ -63,14 +64,13 @@ export default function ConfigDatumHolder() {
         ],
       };
       // scriptHashToCredential
-
       const datum: ConfigDatum = {
         fees_address: paymentCredentialOf(await privateKeytoAddress(signer3))
           .hash,
         fees_amount: 100_000_000n,
         fees_asset_class: assestClass, // need verification form sourabh
         spend_address: paymentCredentialOf(validatorContractAddress).hash, // need verification form sourabh (how to pass address directly?)
-        categories: [fromText("forest"), fromText("water")],
+        categories: CATEGORIES.map((category) => fromText(category)),
         multisig_validator_group: signer,
         multisig_refutxoupdate: signer,
       };

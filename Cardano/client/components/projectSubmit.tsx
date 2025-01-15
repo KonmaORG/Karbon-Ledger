@@ -11,8 +11,8 @@ import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, Command
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { submitProject } from "@/lib/transactions"
 import { useWallet } from "@/context/walletContext"
+import { CATEGORIES } from "@/config/constants"
 
-const categories = ["forest", "water", "air", "deforestration", "Algae Treatment"]
 
 export default function ProjectSubmit() {
     const [walletConnection] = useWallet()
@@ -108,7 +108,7 @@ export default function ProjectSubmit() {
                                     className="col-span-3 justify-between"
                                 >
                                     {selectedCategory
-                                        ? categories.find((category) => category === selectedCategory)
+                                        ? CATEGORIES.find((category) => category === selectedCategory)
                                         : "Select category..."}
                                     <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                                 </Button>
@@ -119,7 +119,7 @@ export default function ProjectSubmit() {
                                     <CommandList>
                                         <CommandEmpty>No category found.</CommandEmpty>
                                         <CommandGroup>
-                                            {categories.map((category) => (
+                                            {CATEGORIES.map((category) => (
                                                 <CommandItem
                                                     key={category}
                                                     onSelect={() => {

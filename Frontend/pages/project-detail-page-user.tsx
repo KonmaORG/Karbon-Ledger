@@ -12,6 +12,7 @@ import HelpBox from "../components/help-box";
 import { submitProject } from "@/lib/transactions";
 import { useWallet } from "@/context/walletContext";
 import TopMenuBar1 from "@/components/top-menu-bar1";
+import { CATEGORIES } from "@/config/constants";
 
 const ProjectDetailPageUser = () => {
   const router = useRouter();
@@ -139,9 +140,9 @@ const ProjectDetailPageUser = () => {
                     <MenuItem value="" disabled>
                       Select Category
                     </MenuItem>
-                    <MenuItem value="algae">Algae</MenuItem>
-                    <MenuItem value="water">Water</MenuItem>
-                    <MenuItem value="forest">Forestration</MenuItem>
+                    {CATEGORIES.map((category, i) => (
+                      <MenuItem value={category} key={i}>{category}</MenuItem>
+                    ))}
                   </Select>
                   <Button
                     variant="contained"
