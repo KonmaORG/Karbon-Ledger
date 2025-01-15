@@ -141,7 +141,7 @@ const ProjectDetailPageUser = () => {
                     </MenuItem>
                     <MenuItem value="algae">Algae</MenuItem>
                     <MenuItem value="water">Water</MenuItem>
-                    <MenuItem value="forestration">Forestration</MenuItem>
+                    <MenuItem value="forest">Forestration</MenuItem>
                   </Select>
                   <Button
                     variant="contained"
