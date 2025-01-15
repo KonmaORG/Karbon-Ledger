@@ -21,11 +21,10 @@ const TopMenuBar1 = ({ className = "" }) => {
     <header className={[styles.topMenuBar, className].join(" ")}>
       <Image
         className={styles.logoIcon}
-        loading="lazy"
         width={150}
         height={150}
         alt=""
-        src="/logo1@2x.png"
+        src="/logo.png"
       />
       <div className="absolute top-[34%] right-[27.31%] bottom-[42.67%] left-[61.76%] connectWallet">
         <WalletConnector />

@@ -52,14 +52,14 @@ const HeaderTypography = styled(Typography)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const CertificateListCard = () => {
+const CertificateListCardUser = () => {
   const router = useRouter();
 
   const onViewProject = useCallback(
     (id: string) => {
       router.push("/project-detail-page-admin");
     },
-    [router],
+    [router]
   );
 
   const onApprove = useCallback((id: string) => {
@@ -91,15 +91,6 @@ const CertificateListCard = () => {
 
   return (
     <div className={styles.projectListCard}>
-      {projects.map((utxo) => {
-        return (
-          <div key={utxo.txHash + utxo.outputIndex} className="space-x-2">
-            <span>
-              {utxo.txHash}#{utxo.outputIndex}
-            </span>
-          </div>
-        );
-      })}
       <StyledPaper elevation={3}>
         <Typography
           variant="h5"
@@ -115,7 +106,7 @@ const CertificateListCard = () => {
           borderBottom="2px solid #000"
           sx={{ position: "relative", zIndex: 1 }}
         >
-          <HeaderTypography sx={{ width: "20%" }}>Project</HeaderTypography>
+          <HeaderTypography sx={{ width: "10%" }}>Project</HeaderTypography>
           <HeaderTypography sx={{ width: "10%" }}>
             Project Type
           </HeaderTypography>
@@ -128,7 +119,7 @@ const CertificateListCard = () => {
             Region, Country
           </HeaderTypography>
           <HeaderTypography sx={{ width: "5%" }}>Qty</HeaderTypography>
-          <HeaderTypography sx={{ width: "5%" }}>
+          <HeaderTypography sx={{ width: "10%" }}>
             Price per unit
           </HeaderTypography>
           <HeaderTypography sx={{ width: "10%" }}>
@@ -137,7 +128,7 @@ const CertificateListCard = () => {
         </Box>
         <Box sx={{ position: "relative", zIndex: 1 }}>
           {projects.map((project, i) => (
-            <ProjectItem key={i} project={project} />
+            <ProjectItem key={i} project={project} index={i + 1} />
           ))}
         </Box>
       </StyledPaper>
@@ -145,10 +136,11 @@ const CertificateListCard = () => {
   );
 };
 
-export default CertificateListCard;
+export default CertificateListCardUser;
 
 interface ProjectItemProps {
   project: UTxO;
+  index: number;
 }
 
 const ItemTypography = styled(Typography)(({ theme }) => ({
@@ -165,7 +157,7 @@ const ActionButton = styled(Button)(({ theme, color }) => ({
   height: 26,
 }));
 
-const ProjectItem: React.FC<ProjectItemProps> = ({ project }) => {
+const ProjectItem: React.FC<ProjectItemProps> = ({ project, index }) => {
   const [walletConnection] = useWallet();
   const { lucid } = walletConnection;
   const [rejecting, setRejecting] = useState(false);
@@ -209,7 +201,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ project }) => {
         py={2}
         borderBottom="1px solid #e0e0e0"
       >
-        <Box sx={{ width: "20%", display: "flex", alignItems: "center" }}>
+        <Box sx={{ width: "10%", display: "flex", alignItems: "center" }}>
           <Image
             src={PROJECTS[0].logoSrc}
             alt={PROJECTS[0].title}
@@ -235,7 +227,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ project }) => {
           {PROJECTS[0].location}
         </ItemTypography>
         <ItemTypography sx={{ width: "5%" }}>{PROJECTS[0].area}</ItemTypography>
-        <ItemTypography sx={{ width: "5%" }}>
+        <ItemTypography sx={{ width: "10%" }}>
           {Number(datum.fees_amount) / 1000000}
         </ItemTypography>
         <Box
@@ -254,6 +246,22 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ project }) => {
               {project.txHash.slice(0, 13)}
             </ItemTypography>
           </Link>
+          <div className=" pl-4">
+            {index % 3 === 0 && (
+              <>
+                <ItemTypography sx={{ width: "10%" }}>Rejected</ItemTypography>
+                <ActionButton
+                  variant="contained"
+                  color="success"
+                  href="http://localhost:3000/project-detail-page-user"
+                  sx={{ width: "10%" }}
+                >
+                  ReApply
+                </ActionButton>
+              </>
+            )}
+          </div>
+
           {/* <ActionButton
             variant="contained"
             onClick={() => handleAccept(project)}

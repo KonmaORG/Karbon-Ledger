@@ -10,7 +10,7 @@ import AccountLeftMenu from "../components/account-left-menu";
 import HelpBox from "../components/help-box";
 import ProjectListCard from "../components/project-list-card";
 import TopMenuBar1 from "@/components/top-menu-bar1";
-import CertificateListCardUser from "@/components/certificate-list-card -user";
+import CertificateListCardUser from "@/components/certificate-list-card-user";
 
 const UserCertificatesPage = () => {
   const router = useRouter();

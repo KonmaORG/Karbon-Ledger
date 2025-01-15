@@ -52,14 +52,14 @@ const HeaderTypography = styled(Typography)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const CertificateListCardUser = () => {
+const CertificateListCard = () => {
   const router = useRouter();
 
   const onViewProject = useCallback(
     (id: string) => {
       router.push("/project-detail-page-admin");
     },
-    [router],
+    [router]
   );
 
   const onApprove = useCallback((id: string) => {
@@ -91,15 +91,6 @@ const CertificateListCardUser = () => {
 
   return (
     <div className={styles.projectListCard}>
-      {projects.map((utxo) => {
-        return (
-          <div key={utxo.txHash + utxo.outputIndex} className="space-x-2">
-            <span>
-              {utxo.txHash}#{utxo.outputIndex}
-            </span>
-          </div>
-        );
-      })}
       <StyledPaper elevation={3}>
         <Typography
           variant="h5"
@@ -137,7 +128,7 @@ const CertificateListCardUser = () => {
         </Box>
         <Box sx={{ position: "relative", zIndex: 1 }}>
           {projects.map((project, i) => (
-            <ProjectItem key={i} project={project} index={i + 1} />
+            <ProjectItem key={i} project={project} />
           ))}
         </Box>
       </StyledPaper>
@@ -145,11 +136,10 @@ const CertificateListCardUser = () => {
   );
 };
 
-export default CertificateListCardUser;
+export default CertificateListCard;
 
 interface ProjectItemProps {
   project: UTxO;
-  index: number;
 }
 
 const ItemTypography = styled(Typography)(({ theme }) => ({
@@ -166,31 +156,31 @@ const ActionButton = styled(Button)(({ theme, color }) => ({
   height: 26,
 }));
 
-const ProjectItem: React.FC<ProjectItemProps> = ({ project, index }) => {
+const ProjectItem: React.FC<ProjectItemProps> = ({ project }) => {
   const [walletConnection] = useWallet();
   const { lucid } = walletConnection;
   const [rejecting, setRejecting] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [datum, setDatum] = useState<KarbonDatum | undefined>(undefined);
-  // async function handleReject(utxo: UTxO) {
-  //   setRejecting(true);
-  //   try {
-  //     await rejectProject(walletConnection, utxo);
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  //   setRejecting(false);
-  // }
+  async function handleReject(utxo: UTxO) {
+    setRejecting(true);
+    try {
+      await rejectProject(walletConnection, utxo);
+    } catch (e) {
+      console.log(e);
+    }
+    setRejecting(false);
+  }
 
-  // async function handleAccept(utxo: UTxO) {
-  //   setSubmitting(true);
-  //   try {
-  //     await acceptProject(walletConnection, utxo);
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  //   setSubmitting(false);
-  // }
+  async function handleAccept(utxo: UTxO) {
+    setSubmitting(true);
+    try {
+      await acceptProject(walletConnection, utxo);
+    } catch (e) {
+      console.log(e);
+    }
+    setSubmitting(false);
+  }
 
   useEffect(() => {
     async function fetchDatum() {
@@ -255,23 +245,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ project, index }) => {
               {project.txHash.slice(0, 13)}
             </ItemTypography>
           </Link>
-          <div className=" pl-4">
-            {index % 3 === 0 && (
-              <>
-                <ItemTypography sx={{ width: "10%" }}>Rejected</ItemTypography>
-                <ActionButton
-                  variant="contained"
-                  color="success"
-                  href="http://localhost:3000/project-detail-page-user"
-                  sx={{ width: "10%" }}
-                >
-                  ReApply
-                </ActionButton>
-              </>
-            )}
-          </div>
-
-          {/* <ActionButton
+          <ActionButton
             variant="contained"
             onClick={() => handleAccept(project)}
             disabled={submitting}
@@ -287,7 +261,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ project, index }) => {
             disabled={rejecting}
           >
             {rejecting ? "Rejecting..." : "Reject"}
-          </ActionButton> */}
+          </ActionButton>
           {/* <ActionButton
           variant="contained"
           color="primary"

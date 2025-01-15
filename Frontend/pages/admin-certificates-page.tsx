@@ -8,8 +8,8 @@ import styles from "./admin-certificates-page.module.css";
 import LeftMenuBar from "../components/left-menu-bar";
 import AccountLeftMenu from "../components/account-left-menu";
 import HelpBox from "../components/help-box";
-import CertificateListCard from "../components/certificate-list-card";
 import TopMenuBar1 from "@/components/top-menu-bar1";
+import CertificateListCard from "@/components/certificate-list-card-admin";
 
 const AdminCertificatesPage = () => {
   const router = useRouter();
@@ -33,7 +33,6 @@ const AdminCertificatesPage = () => {
       <AccountLeftMenu />
       <HelpBox />
       {/* <FrameComponent2 /> */}
-
       {/* <Background1 /> */}
       <CertificateListCard />
     </div>

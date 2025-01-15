@@ -7,11 +7,15 @@ import AccountLeftMenu from "../components/account-left-menu";
 import HelpBox1 from "../components/help-box1";
 import styles from "./index.module.css";
 import AdminDashboardPage from "../components/admin-dashboard";
+import router from "next/router";
 
 const ProjectsPageUser = () => {
   const onConnectWalletClick = useCallback(() => {
     // Please sync "Project Creation Page - User" to the project
   }, []);
+  const new_project = useCallback(() => {
+    router.push("/project-detail-page-user");
+  }, [router]);
 
   return (
     <div className={styles.projectsPageUser}>
@@ -22,7 +26,9 @@ const ProjectsPageUser = () => {
               <div className={styles.icon}>
                 <div className={styles.div}></div>
               </div>
-              <div className={styles.text}>Create New Project +</div>
+              <div className={styles.text} onClick={new_project} role="button">
+                Create New Project +
+              </div>
               <div className={styles.icon}>
                 <div className={styles.div}></div>
               </div>
