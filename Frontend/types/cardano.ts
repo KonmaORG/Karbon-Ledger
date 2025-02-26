@@ -122,6 +122,8 @@ export const ConfigDatumSchema = Data.Object({
   categories: Data.Array(Data.Bytes()),
   multisig_validator_group: MultisigSchema,
   multisig_refutxoupdate: MultisigSchema,
+  cet_policyid: Data.Bytes(),
+  cot_policyId: Data.Bytes(),
 });
 export type ConfigDatum = Data.Static<typeof ConfigDatumSchema>;
 export const ConfigDatum = ConfigDatumSchema as unknown as ConfigDatum;

@@ -9,12 +9,10 @@ export type Wallet = {
   enable(): Promise<WalletApi>;
 };
 
-
 export const OrefSchema = Data.Object({
   transaction_id: Data.Bytes(),
   output_index: Data.Integer(),
 });
-
 
 //#region Enum
 export type Action = "Mint" | "Burn";
@@ -30,13 +28,7 @@ export const Action = {
     Constr: new Constr(1, []),
   },
 };
-export const ActionSchema = Data.Enum([
-  Action.Mint.Schema,
-  Action.Burn.Schema,
-]);
-
-
-
+export const ActionSchema = Data.Enum([Action.Mint.Schema, Action.Burn.Schema]);
 
 export type AcceptRejectAction = "Accept" | "Reject";
 export const AcceptRejectAction = {
@@ -66,9 +58,6 @@ export const KarbonRedeemerSpendSchema = Data.Object({
 export type KarbonRedeemerSpend = Data.Static<typeof KarbonRedeemerSpendSchema>;
 export const KarbonRedeemerSpend =
   KarbonRedeemerSpendSchema as unknown as KarbonRedeemerSpend;
-
-
-
 
 export const KarbonRedeemerMintSchema = Data.Object({
   action: ActionSchema,
@@ -133,6 +122,8 @@ export const ConfigDatumSchema = Data.Object({
   categories: Data.Array(Data.Bytes()),
   multisig_validator_group: MultisigSchema,
   multisig_refutxoupdate: MultisigSchema,
+  cet_policyid: Data.Bytes(),
+  cot_policyId: Data.Bytes(),
 });
 export type ConfigDatum = Data.Static<typeof ConfigDatumSchema>;
 export const ConfigDatum = ConfigDatumSchema as unknown as ConfigDatum;

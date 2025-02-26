@@ -1,3 +1,4 @@
+use aiken/collection/dict
 use aiken/collection/list
 use cardano/address.{Script, VerificationKey, from_verification_key}
 use cardano/assets.{PolicyId}
@@ -69,10 +70,7 @@ validator validator_contract(
         expect _: KarbonDatum = oref_input_datum
 
         and {
-          must_have_asset_and_burn(
-            mint,
-            validator_contract_mint,
-          ),
+          must_have_asset_and_burn(mint, validator_contract_mint),
           must_mint_tokens(mint, policy_id, redeemer),
           atleast_signedby(
             extra_signatories,
@@ -80,13 +78,25 @@ validator validator_contract(
           ),
         }
       }
-      Burn -> and {
+      Burn -> {
+        let multi_sig =
           atleast_signedby(
             extra_signatories,
             ref_datum.multisig_validator_group,
-          ),
-          must_burn_less_than_0(mint, policy_id),
+          )
+        if multi_sig {
+          must_burn_less_than_0(mint, policy_id)
+        } else {
+          expect [Pair(_, cet_qty)] =
+            mint |> assets.tokens(ref_datum.cet_policyid) |> dict.to_pairs
+          expect [Pair(_, cot_qty)] =
+            mint |> assets.tokens(policy_id) |> dict.to_pairs
+          and {
+            cet_qty < 0,
+            cot_qty == cet_qty,
+          }
         }
+      }
     }
   }
 
