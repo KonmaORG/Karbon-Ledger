@@ -4,6 +4,7 @@ import { AssetClass, ConfigDatum, Multisig } from "@/types/cardano";
 import {
   Data,
   fromText,
+  mintingPolicyToId,
   paymentCredentialOf,
   Script,
   scriptHashToCredential,
@@ -15,6 +16,7 @@ import {
 import React from "react";
 import { Button } from "../ui/button";
 import {
+  CETMINTER,
   ConfigDatumHolderValidator,
   identificationPolicyid,
   ValidatorContract,
@@ -50,7 +52,13 @@ export default function ConfigDatumHolder() {
         NETWORK,
         validatorContract
       );
-
+      const cetMintingPolicy = CETMINTER;
+      const cetPolicyId = mintingPolicyToId(cetMintingPolicy);
+      const cotMintingPolicy = ValidatorContract();
+      const cotPolicyId = mintingPolicyToId(cotMintingPolicy);
+      console.log("configDatum", contractAddress);
+      console.log("cetPolicyId", cetPolicyId);
+      console.log("cotPolicyId", cotPolicyId);
       const assestClass: AssetClass = {
         policyid: "",
         asset_name: fromText(""),
@@ -73,6 +81,8 @@ export default function ConfigDatumHolder() {
         categories: CATEGORIES.map((category) => fromText(category)),
         multisig_validator_group: signer,
         multisig_refutxoupdate: signer,
+        cet_policyid: cetPolicyId,
+        cot_policyId: cotPolicyId,
       };
       const tx = await lucid
         .newTx()

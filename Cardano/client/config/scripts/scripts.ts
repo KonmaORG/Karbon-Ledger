@@ -11,8 +11,10 @@ import {
   validator_contract_validator_contract_mint_mint,
 } from "./plutus";
 import { getPolicyId } from "@/lib/utils";
+import { cet_minter_cet_minter_mint } from "./karbonEmission";
 
-export const identificationPolicyid: Data = process.env.NEXT_PUBLIC_IDENTIFICATION_PID as string;
+export const identificationPolicyid: Data = process.env
+  .NEXT_PUBLIC_IDENTIFICATION_PID as string;
 
 //------------------------------------------------------------------
 const identificationNFT_Mint = applyDoubleCborEncoding(
@@ -67,3 +69,11 @@ export function ValidatorMinter(): Validator {
     ]),
   };
 }
+
+//#region Karbon_Emission
+const cet_minter_mint = applyDoubleCborEncoding(cet_minter_cet_minter_mint);
+
+export const CETMINTER: Validator = {
+  type: "PlutusV3",
+  script: cet_minter_mint,
+};
