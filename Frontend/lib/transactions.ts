@@ -12,6 +12,7 @@ import {
   mintingPolicyToId,
   OutRef,
   paymentCredentialOf,
+  stakeCredentialOf,
   TxSignBuilder,
   UTxO,
   Validator,
@@ -39,21 +40,22 @@ export async function submit(tx: TxSignBuilder) {
 }
 
 async function getDatum(lucid: LucidEvolution, utxo: UTxO) {
-  const data = await lucid.datumOf(utxo)
+  const data = await lucid.datumOf(utxo);
   const datum = Data.castFrom(data, KarbonDatum);
-  return datum
+  return datum;
 }
 
-function hashtoAddress(hash: string) {
-  const credential = keyHashToCredential(hash)
-  const address = credentialToAddress(NETWORK, credential)
-  return address
+function hashtoAddress(hash: string[]) {
+  const vkh = keyHashToCredential(hash[0]);
+  const skh = keyHashToCredential(hash[1]);
+  const address = credentialToAddress(NETWORK, vkh, skh);
+  return address;
 }
 export async function submitProject(
   walletConnection: WalletConnection,
   fileHash: string,
   category: string,
-  projectTitle: string,
+  projectTitle: string
 ) {
   const { lucid, address } = walletConnection;
   if (!lucid) throw new Error("Uninitialized Lucid!");
@@ -76,7 +78,10 @@ export async function submitProject(
   };
 
   const datum: KarbonDatum = {
-    developer: paymentCredentialOf(address).hash,
+    developer: [
+      paymentCredentialOf(address).hash,
+      stakeCredentialOf(address).hash,
+    ],
     document: fileHash,
     categories: fromText(category),
     asset_name: fromText(projectAssetName),
@@ -90,7 +95,7 @@ export async function submitProject(
     .pay.ToAddressWithData(
       validatorContractAddress,
       { kind: "inline", value: Data.to(datum, KarbonDatum) },
-      { lovelace: 3_000_000n, ...mintedAssets },
+      { lovelace: 3_000_000n, ...mintedAssets }
     )
     .pay.ToAddress(await privateKeytoAddress(SIGNER3), {
       lovelace: 100_000_000n,
@@ -117,7 +122,7 @@ export async function submitProject(
 
 export async function rejectProject(
   walletConnection: WalletConnection,
-  utxo: UTxO,
+  utxo: UTxO
 ) {
   const { lucid, address } = walletConnection;
   if (!lucid) throw new Error("Uninitialized Lucid!");
@@ -129,7 +134,7 @@ export async function rejectProject(
   const burnedAssets = Object.fromEntries(
     Object.entries(utxo.assets)
       .filter(([unit]) => unit.startsWith(policyID))
-      .map(([unit, quantity]) => [unit, -quantity]),
+      .map(([unit, quantity]) => [unit, -quantity])
   );
 
   const refutxo = await refUtxo(lucid);
@@ -165,7 +170,7 @@ export async function rejectProject(
 
 export async function acceptProject(
   walletConnection: WalletConnection,
-  utxo: UTxO,
+  utxo: UTxO
 ) {
   const { lucid, address } = walletConnection;
   if (!lucid) throw "Uninitialized Lucid!!!";
@@ -179,11 +184,11 @@ export async function acceptProject(
   const burnedAssets = Object.fromEntries(
     Object.entries(utxo.assets)
       .filter(([unit]) => unit.startsWith(policyIDMinter))
-      .map(([unit, quantity]) => [unit, -quantity]),
+      .map(([unit, quantity]) => [unit, -quantity])
   );
 
-  const datum = await getDatum(lucid, utxo)
-  const DeveloperAddress = hashtoAddress(datum.developer)
+  const datum = await getDatum(lucid, utxo);
+  const DeveloperAddress = hashtoAddress(datum.developer);
   // reference Utxo
   const refutxo = await refUtxo(lucid);
 
@@ -222,7 +227,7 @@ export async function acceptProject(
     .attach.MintingPolicy(mintingValidator)
     .mintAssets(
       carbonMintAssets,
-      Data.to(redeemerValidatorMint, KarbonRedeemerMint),
+      Data.to(redeemerValidatorMint, KarbonRedeemerMint)
     )
     .attach.MintingPolicy(validatorContract)
     .addSigner(await privateKeytoAddress(SIGNER1))

@@ -9,6 +9,14 @@ export type Wallet = {
   enable(): Promise<WalletApi>;
 };
 
+export const PaymentKeyHashSchema = Data.Bytes();
+export const StakeKeyHashSchema = Data.Bytes();
+
+export const AddressSchema = Data.Tuple([
+  PaymentKeyHashSchema,
+  StakeKeyHashSchema,
+]);
+
 export const OrefSchema = Data.Object({
   transaction_id: Data.Bytes(),
   output_index: Data.Integer(),
@@ -129,7 +137,7 @@ export type ConfigDatum = Data.Static<typeof ConfigDatumSchema>;
 export const ConfigDatum = ConfigDatumSchema as unknown as ConfigDatum;
 //----------------------------------------------------
 export const KarbonDatumSchema = Data.Object({
-  developer: Data.Bytes(),
+  developer: AddressSchema,
   document: Data.Bytes(),
   categories: Data.Bytes(),
   asset_name: Data.Bytes(),
