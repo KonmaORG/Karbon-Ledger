@@ -2,13 +2,27 @@ use aiken/cbor
 use aiken/collection/dict
 use aiken/collection/list
 use aiken/crypto.{VerificationKeyHash}
-use cardano/address.{Address, Script, VerificationKey, from_verification_key}
+use cardano/address.{
+  Address, Inline, Script, VerificationKey, from_verification_key,
+}
 use cardano/assets.{AssetName, PolicyId, Value}
 use cardano/transaction.{InlineDatum,
   Input, Output, OutputReference, find_input}
 use modules/types.{
   AssetClass, ConfigDatum, KarbonDatum, KarbonRedeemerMint, KarbonRedeemerSpend,
-  Multisig,
+  Multisig, PaymentKeyHash, StakeKeyHash,
+}
+
+pub fn address_from_tuple(key_hash_tuple: (PaymentKeyHash, StakeKeyHash)) {
+  let (pkh, skh) = key_hash_tuple
+  Address {
+    payment_credential: pkh |> VerificationKey,
+    stake_credential: if skh == "" {
+      None
+    } else {
+      skh |> Script |> Inline |> Some
+    },
+  }
 }
 
 pub fn must_consume_utxo(inputs: List<Input>, o_ref: OutputReference) {
@@ -112,12 +126,7 @@ pub fn funds_sent_to_developer(
   expect Some(output) =
     list.find(
       outputs,
-      fn(output) {
-        when output.address.payment_credential is {
-          VerificationKey(vkh) -> vkh == developer
-          _ -> False
-        }
-      },
+      fn(output) { output.address == address_from_tuple(developer) },
     )
 
   let temp = assets.quantity_of(output.value, policy_id, token_name_oref(oref))

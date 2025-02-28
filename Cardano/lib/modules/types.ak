@@ -9,6 +9,15 @@ pub type AssetClass {
   asset_name: AssetName,
 }
 
+pub type PaymentKeyHash =
+  VerificationKeyHash
+
+pub type StakeKeyHash =
+  VerificationKeyHash
+
+pub type AddressTuple =
+  (PaymentKeyHash, StakeKeyHash)
+
 pub type Action {
   Mint
   Burn
@@ -41,7 +50,7 @@ pub type ConfigDatum {
 }
 
 pub type KarbonDatum {
-  developer: VerificationKeyHash,
+  developer: AddressTuple,
   document: ByteArray,
   category: ByteArray,
   asset_name: ByteArray,

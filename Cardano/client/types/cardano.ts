@@ -14,6 +14,13 @@ export const OrefSchema = Data.Object({
   output_index: Data.Integer(),
 });
 
+export const PaymentKeyHashSchema = Data.Bytes();
+export const StakeKeyHashSchema = Data.Bytes();
+
+export const AddressSchema = Data.Tuple([
+  PaymentKeyHashSchema,
+  StakeKeyHashSchema,
+]);
 //#region Enum
 export type Action = "Mint" | "Burn";
 export const Action = {
@@ -129,7 +136,7 @@ export type ConfigDatum = Data.Static<typeof ConfigDatumSchema>;
 export const ConfigDatum = ConfigDatumSchema as unknown as ConfigDatum;
 //----------------------------------------------------
 export const KarbonDatumSchema = Data.Object({
-  developer: Data.Bytes(),
+  developer: AddressSchema,
   document: Data.Bytes(),
   categories: Data.Bytes(),
   asset_name: Data.Bytes(),
