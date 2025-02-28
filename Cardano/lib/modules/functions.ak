@@ -20,7 +20,7 @@ pub fn address_from_tuple(key_hash_tuple: (PaymentKeyHash, StakeKeyHash)) {
     stake_credential: if skh == "" {
       None
     } else {
-      skh |> Script |> Inline |> Some
+      skh |> VerificationKey |> Inline |> Some
     },
   }
 }
