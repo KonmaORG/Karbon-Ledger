@@ -30,23 +30,33 @@ export default function WalletComponent() {
 
     const installedWallets: Wallet[] = [];
     const { cardano } = window;
+
     for (const c in cardano) {
       const wallet = cardano[c];
 
       if (!wallet.apiVersion) continue;
       installedWallets.push(wallet);
     }
-    const updatedPreWallets = wallets.map((preWallet) => {
-      const matchingWallet = installedWallets.find((provider) =>
-        provider.name.toLowerCase().includes(preWallet.name.toLowerCase()),
+    const updatedWallets = wallets;
+    installedWallets.forEach((provider) => {
+      const index = updatedWallets.findIndex(
+        (wallet) => wallet.name.toLowerCase() === provider.name.toLowerCase()
       );
-      return {
-        ...preWallet,
-        ...(matchingWallet && { enable: matchingWallet.enable }),
-      };
+      if (index !== -1) {
+        updatedWallets[index] = {
+          ...updatedWallets[index],
+          enable: provider.enable,
+        };
+      } else {
+        updatedWallets.push({
+          name: provider.name,
+          enable: provider.enable,
+          icon: provider.icon,
+        });
+      }
     });
 
-    setWallets(updatedPreWallets);
+    setWallets(updatedWallets.sort((a, b) => a.name.localeCompare(b.name)));
   }, []);
 
   async function onConnectWallet(wallet: Wallet) {
