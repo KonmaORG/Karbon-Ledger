@@ -143,6 +143,9 @@ export default function ConfigDatumHolder() {
       .addSigner(
         "addr_test1qppjp6z53cr6axg59ezf93vlcqqva7wg6d5zfxr5fctnsuveaxzar94mukjwdp323ahhs3tsn0nmawextjtkfztcs20q6fmam2"
       )
+      .addSigner(
+        "addr_test1qzzxrfxg6hq8zerw8g85cvcpxutjtgez5v75rs99kdnn404cfuf2xydw2zrehxmvd3k9nqywe3d6mn64a08ncc5h5s3qd5ewlk"
+      )
       .complete();
     // ***************88IMPORTANT************ ALSO ADD THIRD SIGNER AND UPDATE BELOW LOGIC ACCORDING TO THAT
     // const signed = await multiSignwithPrivateKey(tx, [signer1, signer2]);
