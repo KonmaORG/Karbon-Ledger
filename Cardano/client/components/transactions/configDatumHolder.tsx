@@ -1,3 +1,4 @@
+"use client";
 import { NETWORK } from "@/config/lucid";
 import { useWallet } from "@/context/walletContext";
 import { AssetClass, ConfigDatum, Multisig } from "@/types/cardano";
@@ -13,7 +14,7 @@ import {
   validatorToAddress,
   validatorToScriptHash,
 } from "@lucid-evolution/lucid";
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../ui/button";
 import {
   CETMINTER,
@@ -34,17 +35,18 @@ import { CATEGORIES } from "@/config/constants";
 export default function ConfigDatumHolder() {
   const [WalletConnection] = useWallet();
   const { lucid, address } = WalletConnection;
-
+  const [partialSign1, setPartialSign1] = useState<string>("");
+  const [partialSign2, setPartialSign2] = useState<string>("");
+  const [TX, setTx] = useState<string>("");
   let signer1 = process.env.NEXT_PUBLIC_SIGNER_1 as string;
   let signer2 = process.env.NEXT_PUBLIC_SIGNER_2 as string;
   let signer3 = process.env.NEXT_PUBLIC_SIGNER_3 as string;
-
+  const configNFT = {
+    [identificationPolicyid + fromText("KarbonIdentificationNFT")]: 1n,
+  };
   async function deposit() {
     if (!lucid || !address) throw "Uninitialized Lucid!!!";
     try {
-      const configNFT = {
-        [identificationPolicyid + fromText("KarbonIdentificationNFT")]: 1n,
-      };
       const validator: SpendingValidator = ConfigDatumHolderValidator();
       const contractAddress = validatorToAddress(NETWORK, validator);
       const validatorContract: SpendingValidator = ValidatorContract();
@@ -64,11 +66,23 @@ export default function ConfigDatumHolder() {
         asset_name: fromText(""),
       };
       const signer: Multisig = {
-        required: 2n,
+        required: 3n,
         signers: [
-          paymentCredentialOf(await privateKeytoAddress(signer1)).hash,
-          paymentCredentialOf(await privateKeytoAddress(signer2)).hash,
-          paymentCredentialOf(await privateKeytoAddress(signer3)).hash,
+          paymentCredentialOf(
+            "addr_test1qzk08tz3s7xcaxq5q0udh5kpm6fz8vhpd230c07nehtzl5ahaqav4a8stg7sfudah7uxw5g9umv897ppygy559le55tql9690r"
+          ).hash,
+          paymentCredentialOf(
+            "addr_test1qppjp6z53cr6axg59ezf93vlcqqva7wg6d5zfxr5fctnsuveaxzar94mukjwdp323ahhs3tsn0nmawextjtkfztcs20q6fmam2"
+          ).hash,
+          paymentCredentialOf(
+            "addr_test1qzzxrfxg6hq8zerw8g85cvcpxutjtgez5v75rs99kdnn404cfuf2xydw2zrehxmvd3k9nqywe3d6mn64a08ncc5h5s3qd5ewlk"
+          ).hash,
+          paymentCredentialOf(
+            "addr_test1qr3deh8jxn9ejxmuunv6krgtt6q600tt289pkdhg0vrfcvvrm9x488u4tefkkjay9k49yvdwc459uxc2064eulk2raaqjzwsv3"
+          ).hash,
+          paymentCredentialOf(
+            "addr_test1qzs3pj8vvkhu8d7g0p3sfj8896wds459gqcdes04c5fp7pcs2k7ckl5mly9f89s6zpnx9av7qnl59edp0jy2ac6twtmss44zee"
+          ).hash,
         ],
       };
       // scriptHashToCredential
@@ -113,19 +127,49 @@ export default function ConfigDatumHolder() {
     const configDatumHolderAddress = getAddress(ConfigDatumHolderValidator);
 
     const utxos = await lucid.utxosAt(configDatumHolderAddress);
-    console.log("utxos: ", utxos);
+    console.log("utxos: ", utxos, configNFT);
 
     const tx = await lucid
       .newTx()
       .collectFrom(utxos, Data.void())
+      .pay.ToAddress(
+        "addr_test1qzk08tz3s7xcaxq5q0udh5kpm6fz8vhpd230c07nehtzl5ahaqav4a8stg7sfudah7uxw5g9umv897ppygy559le55tql9690r",
+        { lovelace: 5_000_000n, ...configNFT }
+      )
       .attach.SpendingValidator(configDatumHolder)
-      .addSigner(await privateKeytoAddress(signer1))
-      .addSigner(await privateKeytoAddress(signer2))
+      .addSigner(
+        "addr_test1qzk08tz3s7xcaxq5q0udh5kpm6fz8vhpd230c07nehtzl5ahaqav4a8stg7sfudah7uxw5g9umv897ppygy559le55tql9690r"
+      )
+      .addSigner(
+        "addr_test1qppjp6z53cr6axg59ezf93vlcqqva7wg6d5zfxr5fctnsuveaxzar94mukjwdp323ahhs3tsn0nmawextjtkfztcs20q6fmam2"
+      )
       .complete();
+    // ***************88IMPORTANT************ ALSO ADD THIRD SIGNER AND UPDATE BELOW LOGIC ACCORDING TO THAT
+    // const signed = await multiSignwithPrivateKey(tx, [signer1, signer2]);
+    const partialSign = await tx.partialSign.withWallet();
+    const txcbor = tx.toCBOR();
+    setTx(txcbor);
+    setPartialSign1(partialSign);
+    console.log("partialSign1 added try with next signer ");
+  }
 
-    const signed = await multiSignwithPrivateKey(tx, [signer1, signer2]);
-    const signedd = await signed.sign.withWallet().complete();
-    const txHash = await signedd.submit();
+  async function addSigner() {
+    if (!lucid) {
+      console.log("wallet not connected");
+      return;
+    }
+    const tx = lucid.fromTx(TX);
+    const partialSign3 = await tx.partialSign.withWallet();
+    if (!partialSign2) {
+      setPartialSign2(partialSign3);
+      console.log("added 2nd signer, try with 3rd signer");
+      return;
+    }
+    const signed = await tx
+      .assemble([partialSign1, partialSign2, partialSign3])
+      .complete();
+    console.log("assembled");
+    const txHash = await signed.submit();
     console.log("-------ConfigDatum__Withdraw-------------");
     console.log("txHash: ", txHash);
   }
@@ -134,6 +178,8 @@ export default function ConfigDatumHolder() {
     <div className="flex gap-4">
       <Button onClick={deposit}>send configDatum</Button>
       <Button onClick={withdraw}>modify configDatum</Button>
+      <Button onClick={addSigner}>2nd signer</Button>
+      <Button onClick={addSigner}>3rd signer</Button>
     </div>
   );
 }
